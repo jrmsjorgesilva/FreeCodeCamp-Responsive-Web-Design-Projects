@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/css/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
+  console.log("styles", styles);
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +15,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Jorge Machado - <a href="https://jmsoftwares.com.br" >FreeCodeCamp</a>
+          FreeCodeCamp &nbsp;
+          <Link 
+            href="https://jmsoftwares.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <a>
+              Projects
+            </a>
+          </Link>
         </h1>
 
         <p className={styles.description}>
@@ -21,57 +32,70 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/tribute" className={styles.card}>
-            <h2>Tribute Page &rarr;</h2>
-            <p>A tribute page with a beautifull slider.</p>
-          </a>
+          <Link 
+            href="/tribute" 
+          >
+            <a className={styles.card}>
+              <h2>Tribute Page &rarr;</h2>
+              <p>A tribute page with a beautifull slider.</p>
+            </a>
+          </Link>
 
-          <a href="/surveyform" className={styles.card}>
-            <h2>Survey Form &rarr;</h2>
-            <p>Form using form hooks and validation</p>
-          </a>
+          <Link 
+            href="/surveyform" 
+          >
+            <a className={styles.card}>
+              <h2>Survey Form &rarr;</h2>
+              <p>Form using form hooks and validation</p>
+            </a>
+          </Link>
 
-          <a
+          <Link
             href="/landingpage"
-            className={styles.card}
           >
-            <h2>Product Landing Page &rarr;</h2>
-            <p>Product Landing Page using hooks, state and redux.</p>
-          </a>
+            <a className={styles.card}>
+              <h2>Product Landing Page &rarr;</h2>
+              <p>Product Landing Page using hooks, state and redux.</p>
+            </a>
+          </Link>
 
-          <a
+          <Link
             href="/docs"
-            className={styles.card}
           >
-            <h2>Technical Docs &rarr;</h2>
-            <p>
-              Technical documentation page in order to educate developers.
-            </p>
-          </a>
+            <a className={styles.card}>
+              <h2>Technical Docs &rarr;</h2>
+              <p>
+                Technical documentation page in order to educate developers.
+              </p>
+            </a>
+          </Link>
 
-          <a
+          <Link
             href="/portfolio"
-            className={styles.card}
           >
-            <h2>Personal Portifolio &rarr;</h2>
-            <p>
-              Portfolio Webpage with other projects developed in the course.
-            </p>
-          </a>
+            <a className={styles.card}>
+              <h2>Personal Portifolio &rarr;</h2>
+              <p>
+                Portfolio Webpage with other projects developed in the course.
+              </p>
+            </a>
+          </Link>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        <Link
+          href="https://jmsoftwares.com.br"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+          <a>
+            Powered by{' '}
+            <span className={styles.logo}>
+              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            </span>
+          </a>
+        </Link>
       </footer>
     </div>
   )
