@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../styles/css/TributeContent.module.css';
+import styles from '../../styles/css/TributeContent.module.css';
 import Swal from 'sweetalert2'
 
 const TributeNews = () => {

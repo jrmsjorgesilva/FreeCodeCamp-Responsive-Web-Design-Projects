@@ -2,32 +2,9 @@ import React, { useState, useEffect } from 'react'
 import TributeHero from './TributeHero'
 import TributeData from './TributeData'
 import TributeNews from './TributeNews'
-import Stepper from './Stepper'
+import Stepper from '../Stepper'
 
-const TributeContent = () => {
-
-  const [fetchedSrc, setFetchedSrc] = useState(() => []);
-  const [fetchedAlt, setFetchedAlt] = useState(() => []);
-
-  useEffect(() => {
-
-    const API_URL='https://jsonplaceholder.typicode.com/photos?_start=0&_limit=5'
-
-    const fetchImages = async () => {
-
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      setFetchedSrc(data.map(elem => elem.url));
-      setFetchedAlt(data.map(elem => elem.title));
-
-    }
-
-    fetchImages();
-
-
-  }, [])
-
-  console.log('src', fetchedSrc)
+const TributeContent = ({ fetchedSrc, fetchedAlt }) => {
 
 
   // stepper data

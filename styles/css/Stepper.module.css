@@ -5,55 +5,28 @@
 
 .steps {
   width: 600px;
-  -webkit-box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.3);
-  background-color: #FFF;
   padding: 0px 0;
   position: relative;
   margin: auto;
-}
-
-.steps::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 24px;
-  width: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  left: calc(50px / 2);
-  z-index: 1;
-}
-
-.steps::after {
-  content: '';
-  position: absolute;
-  height: 13px;
-  background-color: var(--primary-color);
-  -webkit-box-shadow: 0px 0px 5px 0px var(--primary-color);
-          box-shadow: 0px 0px 5px 0px var(--primary-color);
-  border-radius: 15px;
-  width: 13px;
-  left: calc(50px / 2);
-  bottom: 24px;
-  -webkit-transform: translateX(-45%);
-          transform: translateX(-45%);
-  z-index: 2;
+  background-color: #333;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .step {
-  padding: 0 20px 24px 50px;
+  padding: 0px 20px 24px 50px;
   position: relative;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background-color: #FFF;
 }
 
 .step::before {
   content: '';
   position: absolute;
   height: 13px;
+  padding-top: 100px;
   width: 13px;
-  background-color: #c6c6c6;
+  background-color: magenta;
   border-radius: 15px;
   left: calc(50px / 2);
   -webkit-transform: translateX(-45%);
@@ -101,13 +74,13 @@
 .step__header .header {
   font-size: 18px;
   font-weight: bold;
-  color: #332;
+  color: magenta;
   padding: 15px;
 }
 
 .step__header .subheader {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
-  color: #332;
+  color: #ddd;
 }
 /*# sourceMappingURL=Stepper.module.css.map */

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image'
-import Slider from './Slider'
+import Slider from '../Slider'
 import { Navigation } from "swiper";
-import styles from '../styles/css/TributeContent.module.css'
+import styles from '../../styles/css/TributeContent.module.css'
 import "swiper/css/navigation";
 import 'swiper/css';
 

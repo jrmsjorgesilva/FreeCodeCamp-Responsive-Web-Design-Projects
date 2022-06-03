@@ -1,11 +1,11 @@
-
+import DocsContent from "../Components/Docs/DocsContent";
 
 const docs = () => {
-    return (
-      <div>
-        <h1>Docs</h1>
-      </div>
-    )
-  }
-  
-  export default docs;
+  return (
+    <div>
+      <DocsContent />
+    </div>
+  )
+}
+
+export default docs;

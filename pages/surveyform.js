@@ -1,9 +1,9 @@
-
+import SurveyFormContent from "../Components/SurveyForm/SurveyFormContent";
 
 const surveyform = () => {
   return (
     <div>
-      <h1>Survey Form</h1>
+      <SurveyFormContent />
     </div>
   )
 }

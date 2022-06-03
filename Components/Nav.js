@@ -38,6 +38,19 @@ const Nav = () => {
             </a>
 
             <Link 
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <a 
+                    className={styles.navbar__item}
+                    onClick={() => setToggleNav(() => !toggleNav)}
+                >
+                    Home
+                </a>
+            </Link>
+
+            <Link 
                 href="/tribute"
                 target="_blank"
                 rel="noopener noreferrer"

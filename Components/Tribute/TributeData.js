@@ -1,7 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from "swiper";
-import styles from '../styles/css/TributeContent.module.css'
+import styles from '../../styles/css/TributeContent.module.css'
 import "swiper/css/pagination";
 import 'swiper/css';
 
