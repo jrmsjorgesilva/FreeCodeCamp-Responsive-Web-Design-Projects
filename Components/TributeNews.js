@@ -59,6 +59,7 @@ const TributeNews = () => {
                     onChange={(e) => handleInput(e)}
                 />
                 <button
+                    type='submit'
                     className={styles.btn__form}
                     onClick={() => {}}
                 >

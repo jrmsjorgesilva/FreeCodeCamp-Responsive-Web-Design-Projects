@@ -1,6 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image'
+import Slider from './Slider'
 import { Navigation } from "swiper";
 import styles from '../styles/css/TributeContent.module.css'
 import "swiper/css/navigation";
@@ -12,28 +13,28 @@ const TributeHero = () => {
 
   const imgCollection = [
     {
-      src: '/img/dio-1.jpg', 
-      alt: 'Dio cantando', 
-      width: '100%', 
-      height: '100%', 
+      imgSrc: '/img/dio-1.jpg', 
+      imgAlt: 'Dio cantando', 
+      imgWidth: '100%', 
+      imgHeight: '100%', 
     },
     {
-      src: '/img/show-1.jpg', 
-      alt: 'Show dio metal', 
-      width: '100%', 
-      height: '100%', 
+      imgSrc: '/img/show-1.jpg', 
+      imgAlt: 'Show dio metal', 
+      imgWidth: '100%', 
+      imgHeight: '100%', 
     },
     {
-      src: '/img/show-2.jpg', 
-      alt: 'Guitarra', 
-      width: '100%', 
-      height: '100%', 
+      imgSrc: '/img/show-2.jpg', 
+      imgAlt: 'Guitarra', 
+      imgWidth: '100%', 
+      imgHeight: '100%', 
     },
     {
-      src: '/img/show-3.jpg', 
-      alt: 'Caixa de som', 
-      width: '100%', 
-      height: '100%', 
+      imgSrc: '/img/show-3.jpg', 
+      imgAlt: 'Caixa de som', 
+      imgWidth: '100%', 
+      imgHeight: '100%', 
     },
     {
       src: '/img/dio-2.jpg', 
@@ -59,6 +60,9 @@ const TributeHero = () => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
         >
+          {/* <Slider 
+            imgCollection={imgCollection} 
+          /> */}
           <SwiperSlide className={styles.swiper__slide}>
             <div className={styles.container__img}>
               <p className={styles.hero__text__title}>Tributo a Dio</p>

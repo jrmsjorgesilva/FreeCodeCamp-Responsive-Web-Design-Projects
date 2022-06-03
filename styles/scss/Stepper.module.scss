@@ -1,0 +1,104 @@
+.section__stepper {
+    min-height: 100vh;
+    padding: 50px 0px;
+}
+
+.steps {
+    width: 600px;
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.3);
+    background-color: #FFF;
+    padding: 0px 0;
+    position: relative;
+    margin: auto;
+}
+
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 24px;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: calc(50px / 2);
+    z-index: 1;
+}
+
+.steps::after {
+    content: '';
+    position: absolute;
+    height: 13px;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 5px 0px var(--primary-color);
+    border-radius: 15px;
+    width: 13px;
+    left: calc(50px / 2);
+    bottom: 24px;
+    transform: translateX(-45%);
+    z-index: 2;
+}
+
+.step {
+    padding: 0 20px 24px 50px;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    background-color: #FFF;
+}
+
+.step::before {
+    content: '';
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    background-color: rgb(198, 198, 198);
+    border-radius: 15px;
+    left: calc(50px / 2);
+    transform: translateX(-45%);
+    z-index: 2;
+}
+
+.step::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: rgb(198, 198, 198);
+    left: calc(50px / 2);
+    top: 0;
+    z-index: 1;
+}
+
+.step__content {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+
+    height: 350px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.step__content {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.step__content:hover {
+    color: magenta;
+    border-color: magenta;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.step__header .header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #332;
+    padding: 15px;
+}
+
+.step__header .subheader {
+    font-size: 10px;
+    font-weight: bold;
+    color: #332;
+}

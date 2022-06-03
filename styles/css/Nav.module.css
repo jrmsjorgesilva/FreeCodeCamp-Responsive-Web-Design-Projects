@@ -1,0 +1,54 @@
+.navbar {
+  position: relative;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.navbar__menu {
+  display: block;
+  color: magenta;
+  font-size: 72px;
+  font-weight: bold;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.navbar__item {
+  font-size: 52px;
+  text-align: center;
+  margin: 15px 0px;
+  width: 100%;
+  display: block;
+  color: white;
+}
+
+.navbar__close {
+  cursor: pointer;
+}
+
+.is__active__navbar {
+  position: fixed;
+  font-size: 120px;
+  font-weight: bolder;
+  padding-top: 80px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(214, 0, 114, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  z-index: 999;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.is__inactive__navbar {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+/*# sourceMappingURL=Nav.module.css.map */
