@@ -2,12 +2,12 @@ import TributeContent from '../Components/Tribute/TributeContent';
 
 const tribute = ({ fetchedSrc, fetchedAlt }) => {
   return (
-    <>
+    <main>
       <TributeContent 
         fetchedAlt={fetchedAlt} 
         fetchedSrc={fetchedSrc} 
       />
-    </>
+    </main>
   )
 }
 

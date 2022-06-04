@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,oBAAoB,CAAC;EACjB,UAAU,EAAE,KAAK;CACpB",
+    "sources": [
+        "../scss/LandingPage.moduile.scss"
+    ],
+    "names": [],
+    "file": "LandingPage.moduile.css"
+}

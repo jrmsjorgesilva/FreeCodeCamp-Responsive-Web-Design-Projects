@@ -2,9 +2,9 @@
 
 const portfolio = () => {
     return (
-      <div>
+      <main>
         <h1>portfolio page</h1>
-      </div>
+      </main>
     )
   }
   

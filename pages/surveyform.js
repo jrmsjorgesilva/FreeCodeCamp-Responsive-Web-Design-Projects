@@ -2,9 +2,9 @@ import SurveyFormContent from "../Components/SurveyForm/SurveyFormContent";
 
 const surveyform = () => {
   return (
-    <div>
+    <main>
       <SurveyFormContent />
-    </div>
+    </main>
   )
 }
 
