@@ -1,0 +1,83 @@
+// landing page styles
+
+.lp__hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 0px;
+    background-color: #7df4ff;
+  background-image: radial-gradient(circle at center center, #7df4ff, #ccc), repeating-radial-gradient(circle at center center, #7df4ff, #7df4ff, 1rem, transparent 2rem, transparent 1rem);
+  background-blend-mode: multiply;
+}
+
+.headline {
+    text-align: center;
+    font-size: 62px;
+    font-weight: bolder;
+    font-family: Montserrat, Poppins, sans-serif;
+    text-shadow: 1px 1px 2px magenta;
+    animation: moveHeadline 5s ease-in-out;
+}
+
+.lead {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container__img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lp__btn {
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(16, 5, 17);
+    background-color: rgb(255, 255, 103);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 30px;
+    padding: 20px 50px;
+    box-shadow: rgba(12, 34, 21, .2) 2px 1px 2px 2px;
+}
+
+.lp__btn:focus,
+.lp__btn:hover {
+    opacity: .8;
+}
+
+
+
+// animations
+@keyframes moveHeadline {
+    0% {
+        transform: translateY(-10px);
+        opacity: .8;
+    }
+
+    50% {
+        transform: translateY(10px);
+        opacity: .9;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+        opacity: .8;
+    }
+
+    100% {
+        transform: rotate(359deg);
+        opacity: 1;
+    }
+}

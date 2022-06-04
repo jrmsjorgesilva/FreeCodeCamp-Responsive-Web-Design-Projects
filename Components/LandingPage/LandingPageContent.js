@@ -1,9 +1,12 @@
 import React from 'react'
+import LandingPageHero from './LandingPageHero'
+import LandingPageForm from './LandingPageForm'
 
 const LandingPageContent = () => {
   return (
     <>
-        <h1>Conteudo da landing page</h1>
+      <LandingPageHero />
+      <LandingPageForm />
     </>
   )
 }
