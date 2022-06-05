@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/Counter.module.scss"
+    ],
+    "names": [],
+    "file": "Counter.module.css"
+}

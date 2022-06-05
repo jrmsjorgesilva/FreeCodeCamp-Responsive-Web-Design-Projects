@@ -4,6 +4,7 @@ import LandingPageForm from './LandingPageForm'
 import LandingPageFeatures from './LandingPageFeatures'
 import VideoSection from '../VideoSection'
 import LandingPagePrice from './LandingPagePrice'
+import LandingPageDemo from './LandingPageDemo'
 
 const LandingPageContent = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPageContent = () => {
       <VideoSection />
       <LandingPageForm />
       <LandingPagePrice />
+      <LandingPageDemo />
     </>
   )
 }

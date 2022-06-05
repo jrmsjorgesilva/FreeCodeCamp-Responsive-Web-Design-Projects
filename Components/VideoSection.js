@@ -10,7 +10,7 @@ const VideoSection = () => {
             <h1
                 className={styles.headline}
             >
-                See with your
+                See with your 
                 <span className={styles.highlight}>
                     own eyes
                 </span>
