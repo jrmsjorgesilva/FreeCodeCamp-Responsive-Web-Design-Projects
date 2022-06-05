@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/PriceTable.module.scss"
+    ],
+    "names": [],
+    "file": "PriceTable.module.css"
+}

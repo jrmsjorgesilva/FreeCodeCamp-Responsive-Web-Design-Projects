@@ -1,5 +1,7 @@
 // landing page styles
 
+// sections
+
 .lp__hero {
     position: relative;
     min-height: 100vh;
@@ -9,6 +11,13 @@
   background-blend-mode: multiply;
 }
 
+.lp__features {
+    min-height: 100vh;
+    padding: 50px 0px;
+}
+
+// typography
+
 .headline {
     text-align: center;
     font-size: 62px;
@@ -16,6 +25,7 @@
     font-family: Montserrat, Poppins, sans-serif;
     text-shadow: 1px 1px 2px magenta;
     animation: moveHeadline 5s ease-in-out;
+    // animation: danceHeadline 2s ease-in-out;
 }
 
 .lead {
@@ -30,6 +40,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.highlight {
+    font-weight: bolder;
+    color: magenta;
 }
 
 .lp__btn {
@@ -50,6 +65,10 @@
     opacity: .8;
 }
 
+.card__container {
+    display: flex;
+    // flex-direction: row;
+}
 
 
 // animations
@@ -70,6 +89,16 @@
     }
 }
 
+@keyframes danceHeadline {
+    from {
+        transform: translateY(-3px);
+    }
+
+    to {
+        transform: translateY(3px);
+    }
+}
+
 @keyframes rotateLogo {
     0% {
         transform: rotate(0deg);
@@ -80,4 +109,12 @@
         transform: rotate(359deg);
         opacity: 1;
     }
+}
+
+@media screen and (max-width: 680px) {
+    .card__container {
+        display: block;
+        // flex-direction: column;
+    }
+    
 }

@@ -1,0 +1,102 @@
+// body {
+//   @include animation(fadeIn 2s ease-in-out);
+//   font-family: 'Michroma', sans-serif;
+//   background-color: $bgcolor;
+//   color: #e3dac9;
+// }
+
+  
+  .hero {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .hero video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .headline {
+    text-align: center;
+    font-size: 62px;
+    font-weight: bolder;
+    font-family: Montserrat, Poppins, sans-serif;
+    text-shadow: 1px 1px 2px magenta;
+    animation: moveHeadline 5s ease-in-out;
+  }
+
+  .highlight {
+      color: magenta;
+      font-weight: bolder;
+  }
+
+//   .hero header {
+//     -webkit-transform: translate(-50%, -50%);
+//     -moz-transform: translate(-50%, -50%);
+//     -ms-transform: translate(-50%, -50%);
+//     -o-transform: translate(-50%, -50%);
+//     transform: translate(-50%, -50%);
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     width: 100%;
+//     height: 100%;
+//   }
+//   .hero header h1 {
+//     -webkit-transform: scale(1, 2);
+//     -moz-transform: scale(1, 2);
+//     -ms-transform: scale(1, 2);
+//     -o-transform: scale(1, 2);
+//     transform: scale(1, 2);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+//     height: 100%;
+//     font-size: 4rem;
+//     text-transform: uppercase;
+//     word-spacing: 1vw;
+//     letter-spacing: 0.25rem;
+//   }
+  
+//   .content__area {
+//     min-height: 50vh;
+//     padding: 3rem 6rem;
+//     font-size: 28px;
+//     letter-spacing: 3px;
+//     line-height: 4rem;
+//   }
+  
+//   .grid__overlay {
+//     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAAEFsT2yAAAACXBIWXMAAAsSAAALEgHS3X78AAAAFElEQVR4nGNhYGBwYIET////ZwAAETIDym2lzEcAAAAASUVORK5CYII=);
+//     background-size: 2px 2px;
+//     background-position: 0 0;
+//     background-repeat: repeat;
+//   }
+  
+//   @-webkit-keyframes fadeIn {
+//     from {
+//       opacity: 0;
+//     }
+//     to {
+//       opacity: 1;
+//     }
+//   }
+//   @-moz-keyframes fadeIn {
+//     from {
+//       opacity: 0;
+//     }
+//     to {
+//       opacity: 1;
+//     }
+//   }
+//   @keyframes fadeIn {
+//     from {
+//       opacity: 0;
+//     }
+//     to {
+//       opacity: 1;
+//     }
+//   }

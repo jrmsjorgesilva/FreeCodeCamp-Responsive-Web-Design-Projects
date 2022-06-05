@@ -7,6 +7,11 @@
   background-blend-mode: multiply;
 }
 
+.lp__features {
+  min-height: 100vh;
+  padding: 50px 0px;
+}
+
 .headline {
   text-align: center;
   font-size: 62px;
@@ -40,6 +45,11 @@
           justify-content: center;
 }
 
+.highlight {
+  font-weight: bolder;
+  color: magenta;
+}
+
 .lp__btn {
   font-size: 32px;
   font-weight: bold;
@@ -57,6 +67,12 @@
 .lp__btn:focus,
 .lp__btn:hover {
   opacity: .8;
+}
+
+.card__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @-webkit-keyframes moveHeadline {
@@ -95,6 +111,28 @@
   }
 }
 
+@-webkit-keyframes danceHeadline {
+  from {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  to {
+    -webkit-transform: translateY(3px);
+            transform: translateY(3px);
+  }
+}
+
+@keyframes danceHeadline {
+  from {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  to {
+    -webkit-transform: translateY(3px);
+            transform: translateY(3px);
+  }
+}
+
 @-webkit-keyframes rotateLogo {
   0% {
     -webkit-transform: rotate(0deg);
@@ -118,6 +156,12 @@
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .card__container {
+    display: block;
   }
 }
 /*# sourceMappingURL=LandingPage.module.css.map */
