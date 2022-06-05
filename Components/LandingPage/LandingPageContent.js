@@ -2,7 +2,7 @@ import React from 'react'
 import LandingPageHero from './LandingPageHero'
 import LandingPageForm from './LandingPageForm'
 import LandingPageFeatures from './LandingPageFeatures'
-import VideoSection from '../VideoSection'
+import LandingPageVideo from './LandingPageVideo'
 import LandingPagePrice from './LandingPagePrice'
 import LandingPageDemo from './LandingPageDemo'
 
@@ -11,7 +11,7 @@ const LandingPageContent = () => {
     <>
       <LandingPageHero />
       <LandingPageFeatures />
-      <VideoSection />
+      <LandingPageVideo />
       <LandingPageForm />
       <LandingPagePrice />
       <LandingPageDemo />

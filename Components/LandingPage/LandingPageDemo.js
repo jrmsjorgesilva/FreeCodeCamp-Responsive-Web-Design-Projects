@@ -6,7 +6,7 @@ const LandingPageDemo = () => {
     return (
         <section className={styles.lp__demo}>
             <h1 className={styles.headline}>
-                Veja como é
+                Veja como é &nbsp;
                 <span
                     className={styles.highlight}
                 > 
