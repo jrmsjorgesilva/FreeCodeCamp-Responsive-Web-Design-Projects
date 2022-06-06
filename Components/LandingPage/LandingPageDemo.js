@@ -1,6 +1,8 @@
 import React from 'react'
 import Counter from '../Redux/Features/counter/Counter';
 import styles from '../../styles/css/LandingPage.module.css'
+import flexbox from '../../styles/css/Flexbox.module.css'
+import Image from 'next/image'
 
 const LandingPageDemo = () => {
     return (
@@ -13,7 +15,20 @@ const LandingPageDemo = () => {
                     Fácil Iniciar
                 </span>
             </h1>
-            <Counter />
+            <div className={flexbox.row}>
+                <div className={flexbox.col__6}>
+                    <Image
+                        src='/img_LP/redux-diagram.png'
+                        alt='diagrama explicativo do redux'
+                        width={400}
+                        height={300}
+                    />
+                </div>
+                <div className={flexbox.col__6}>
+                    <Counter />
+                </div>
+            </div>
+
         </section>
     )
 }

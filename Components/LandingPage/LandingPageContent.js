@@ -5,6 +5,7 @@ import LandingPageFeatures from './LandingPageFeatures'
 import LandingPageVideo from './LandingPageVideo'
 import LandingPagePrice from './LandingPagePrice'
 import LandingPageDemo from './LandingPageDemo'
+import LandingPageFooter from './LandingPageFooter'
 
 const LandingPageContent = () => {
   return (
@@ -12,9 +13,10 @@ const LandingPageContent = () => {
       <LandingPageHero />
       <LandingPageFeatures />
       <LandingPageVideo />
-      <LandingPageForm />
       <LandingPagePrice />
       <LandingPageDemo />
+      <LandingPageForm />
+      <LandingPageFooter />
     </>
   )
 }
