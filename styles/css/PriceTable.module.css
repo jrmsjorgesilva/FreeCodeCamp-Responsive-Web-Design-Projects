@@ -11,32 +11,13 @@
   background-color: magenta;
 }
 
-.price p {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-  color: black;
-}
-
-.price ul {
-  padding: 30px 10px;
-}
-
-.price ul li {
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
-  padding: 2px;
-}
-
-.price__title {
+.price h2 {
   font-size: 32px;
   font-weight: 900;
   color: yellow;
 }
 
-.price__btn {
+.price a {
   width: 100%;
   padding: 15px 35px;
   margin: 50px;
@@ -48,8 +29,69 @@
   transition: all .3s ease-in-out;
 }
 
-.price__btn:focus,
-.price__btn:hover {
+.price a:hover {
   opacity: .9;
+}
+
+.price p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+.price p span {
+  font-weight: 900;
+  font-size: 42px;
+  -webkit-animation: colorChange 6s infinite;
+          animation: colorChange 6s infinite;
+}
+
+.price ul {
+  padding: 20px 10px;
+}
+
+.price ul li {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  padding: 2px;
+}
+
+@-webkit-keyframes colorChange {
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: #ffff3b;
+  }
+  50% {
+    color: #fdffc2;
+  }
+  75% {
+    color: #ffff3b;
+  }
+  100% {
+    color: yellow;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: #ffff3b;
+  }
+  50% {
+    color: #fdffc2;
+  }
+  75% {
+    color: #ffff3b;
+  }
+  100% {
+    color: yellow;
+  }
 }
 /*# sourceMappingURL=PriceTable.module.css.map */

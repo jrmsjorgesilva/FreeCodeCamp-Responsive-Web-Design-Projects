@@ -1,9 +1,9 @@
-
+import PortfolioContent from "../Components/Portfolio/PortfolioContent";
 
 const portfolio = () => {
     return (
       <main>
-        <h1>portfolio page</h1>
+        <PortfolioContent />
       </main>
     )
   }

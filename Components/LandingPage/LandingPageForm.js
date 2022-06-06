@@ -87,6 +87,10 @@ const LandingPageForm = () => {
 
             <button
               className={styles.lp__btn}
+              style={{ 
+                width: '100%',
+                fontSize: '22px',
+               }}
               onClick={() => { }}
             >
               I Wanna Be a Redux Toolkit Dev!

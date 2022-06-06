@@ -1,20 +1,23 @@
 import React from 'react'
 import styles from '../styles/css/PriceTable.module.css'
-import flexbox from '../styles/css/Flexbox.module.css'
 import Link from 'next/link'
+import { FaRegCheckCircle, FaMoney, FaSearchMinus, FaCartP, FaRegCheckSquarelus } from 'react-icons/fa'
 
 const PriceTable = ({ priceTable, key }) => {
 
     return (
         <div className={priceTable.columnLength}>
             <div key={key} className={styles.price}>
-                <h2 className={styles.price__title}>{priceTable.plan}</h2>
-                <p className={styles.pricing}>{priceTable.price}<span className={styles.highlight}>/per month</span></p>
-                <p>Save {priceTable.savings} dollars</p>
+                <h2>{priceTable.plan}</h2>
+                <p><span>{priceTable.price}</span> per month</p>
+                <p>Save <span>{priceTable.savings}</span> dollars</p>
                 <hr />
-                <ul className={styles.features}>
+                <ul>
                     {priceTable.features.map((feature, innerKey) => (
-                        <li key={innerKey}>{feature}</li>
+                        <li key={innerKey}>
+                            <FaRegCheckCircle style={{ color: 'yellow', margin: '-2px 10px' }} />
+                            {feature}
+                        </li>
                     ))}
                 </ul>
                 <Link

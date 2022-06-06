@@ -1,9 +1,10 @@
 import React from 'react'
+import PortfolioHero from './PortfolioHero'
 
 const PortfolioContent = () => {
   return (
     <>
-        <h1>Conteudo do Portfolio</h1>
+        <PortfolioHero />
     </>
   )
 }
