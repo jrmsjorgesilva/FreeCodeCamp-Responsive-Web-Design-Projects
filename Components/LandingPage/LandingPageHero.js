@@ -14,17 +14,14 @@ const LandingPageHero = () => {
         We build the web for the better
       </p>
       <div className={styles.container__img} >
-        <Image 
-          src='/img_LP/redux-logo.png' 
-          width={250} 
-          height={230} 
+        <Image
+          src='/img_LP/redux-logo.png'
+          width={250}
+          height={230}
         />
         <button className={styles.lp__btn}>
-          <FaReact 
-            style={{ 
-              transform: 'translateY(5px)', 
-              margin: '0px 10px' 
-            }} 
+          <FaReact
+            className={styles.logo__CTA}
           />
           Get Started
         </button>

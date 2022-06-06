@@ -8,11 +8,11 @@ const LandingPageDemo = () => {
     return (
         <section className={styles.lp__demo}>
             <h1 className={styles.headline}>
-                Veja como é &nbsp;
+                    Easy To &nbsp;
                 <span
                     className={styles.highlight}
                 > 
-                    Fácil Iniciar
+                    Get Started
                 </span>
             </h1>
             <div className={flexbox.row}>

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
+*::selection{
+  background-color: var(--white);
+  color:var(--black);
+}
+
 html,
 body {
   padding: 0;
@@ -16,7 +21,25 @@ body {
     linear-gradient(30deg,#fafafa 24%,#eaeaea 0,#eaeaea 26%,rgba(240,166,17,0) 0,rgba(214, 0, 110, 0) 74%,#eaeaea 0,#eaeaea 76%,#fafafa 0)0 0,
     linear-gradient(90deg,#eaeaea 2%,#fafafa 0,#fafafa 98%,#eaeaea 0%)0 0 #fafafa;
     background-size: 40px 60px;
+
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
 }
+
+::-webkit-scrollbar{
+  height: .5rem;
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: magenta;
+  border-radius: 5rem;
+}
+
 
 a {
   color: inherit;

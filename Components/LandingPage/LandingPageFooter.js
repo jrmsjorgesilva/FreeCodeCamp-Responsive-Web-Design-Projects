@@ -45,7 +45,7 @@ const LandingPageFooter = () => {
         <footer className={styles.lp__footer}>
             <div className={flexbox.row}>
                 <div className={flexbox.col__4}>
-                    <p className={styles.lead} style={{ color: 'magenta', textAlign: 'left' }}>Our team has nothing to do with the actual redux team - this is just a model page</p>
+                    <p className={styles.lead} style={{ color: 'magenta', textAlign: 'left' }}>Our team has nothing to do with the actual redux team. This is just a model page ;)</p>
                     <p className={styles.lead} style={{ textAlign: 'left' }}>All rights reserved. JM Softwares &copy; {today.getFullYear()}</p>
                 </div>
                 <div className={flexbox.col__8}>
@@ -58,7 +58,7 @@ const LandingPageFooter = () => {
                                 borderRadius: '60px',
                              }}
                             type='text'
-                            placeholder='Name or nickname'
+                            placeholder='Your best email'
                             value={newsletter}
                             onChange={(e) => setNewsletter(() => e.target.value)}
                         />

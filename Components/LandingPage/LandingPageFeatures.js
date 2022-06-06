@@ -35,7 +35,7 @@ const LandingPageFeatures = () => {
       <h1 
         className={styles.headline}
       >
-        Our 
+        Our &nbsp;
         <span 
           className={styles.highlight}
         >
