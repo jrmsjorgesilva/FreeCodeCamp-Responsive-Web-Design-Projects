@@ -27,7 +27,7 @@
 }
 
 .portfolio__card {
-    margin: 10px;
+    margin: 20px;
     padding: 30px 20px;
     color: white;
     background-color: rgba(214, 30, 114, .7);
@@ -35,5 +35,38 @@
     border: 1px outset magenta;
     box-shadow: rgba(12, 34, 21, .2) 2px 1px 2px 2px;
     backdrop-filter: blur(4px);
-    min-height: 600px;
+    min-height: 550px;
+}
+
+.skills__container {
+
+}
+
+.portfolio__skillbars {
+    display: flex;
+    margin: 0px 40px;
+}
+
+.portfolio__bar {
+    margin: 10px 30px;
+    width: 80%;
+    /* Full width */
+    background-color: #ddd;
+    /* Grey background */
+    border-radius: 5px;
+}
+
+.portfolio__skill {
+    text-align: right;
+    padding: 2px 3px;
+    color: white;
+    font-weight: 900;
+    border-radius: 5px;
+    background-color: magenta;
+
+    Image {
+        position: absolute;
+        // top: 10px;
+        transform: translateY(130px);
+    }
 }
