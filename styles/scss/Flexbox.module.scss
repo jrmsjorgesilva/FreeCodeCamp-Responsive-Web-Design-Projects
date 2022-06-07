@@ -31,6 +31,14 @@
     margin-top: 10px;
     text-align: center;
   }
+
+  .col__3 {
+    padding: 5px;
+    width: 25%;
+    height: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
   
   .col__4 {
     padding: 5px;
@@ -55,6 +63,14 @@
     text-align: center;
   }
 
+  .col__9 {
+    padding: 5px;
+    width: 75%;
+    height: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+
   .col__10 {
     padding: 5px;
     width: 83.33%;
@@ -74,8 +90,12 @@
   @media screen and (max-width: 1080px) {
     .col,
     .col__2,
+    .col__3,
     .col__4,
     .col__6,
+    .col__8,
+    .col__9,
+    .col__10,
     .col__12 {
       width: 50%;
     }
@@ -84,8 +104,12 @@
   @media screen and (max-width: 680px) {
     .col,
     .col__2,
+    .col__3,
     .col__4,
     .col__6,
+    .col__8,
+    .col__9,
+    .col__10,
     .col__12 {
       width: 100%;
     }

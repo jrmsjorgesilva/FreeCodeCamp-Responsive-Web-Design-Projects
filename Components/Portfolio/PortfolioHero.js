@@ -13,6 +13,7 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import Image from 'next/image'
+import Link from 'next/link'
 
 const PortfolioHero = () => {
 
@@ -83,80 +84,108 @@ const PortfolioHero = () => {
     ],
     hourValue: (45).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }),
   }
-
-  console.log(professional.hourValue)
-
+  
   return (
     <section className={styles.portfolio__hero}>
-      <header className={styles.portfolio__hero__background}>
-        <div className={flexbox.row}>
-          <div className={flexbox.col__6}>
-            <div className={styles.portfolio__card}>
-              <div className={flexbox.row}>
-                <div className={flexbox.col__8}>
-                  <Image
-                    src='/img_portfolio/photo.jpg'
-                    className={styles.portfolio__profile}
-                    width={300}
-                    height={300}
-                  />
-                </div>
-                <div className={flexbox.col__2}>
-                  <FaGithub style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                  <FaGitlab style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                  <FaLinkedin style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                  <FaWhatsapp style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                </div>
-                <div className={flexbox.col__2}>
-                  <FaCode style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                  <FaFreeCodeCamp style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                  <FaMedium style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                  <FaYoutube style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
-                </div>
+      <div className={flexbox.row}>
+        <div className={flexbox.col__6}>
+          <div className={styles.portfolio__card}>
+            <div className={flexbox.row}>
+              <div className={flexbox.col__8}>
+                <Image
+                  src='/img_portfolio/photo.jpg'
+                  className={styles.portfolio__profile}
+                  width={300}
+                  height={300}
+                />
               </div>
-              <h1
-                className={styles.headline}
-              >
-                {professional.name}
-              </h1>
-              <h3
-                className={styles.sub__headline}
-              >
-                {professional.role}
-              </h3>
-              <h3
-                className={styles.sub__headline}
-              >
-                Hour: &nbsp;
-                <span
-                  className={styles.highlight}
-                >
-                  {professional.hourValue}
-                </span>
-              </h3>
+              <div className={flexbox.col__2}>
+                <Link href='https://github.com/jrmsjorgesilva'>
+                  <a>
+                    <FaGithub style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+                <Link href='https://gitlab.com/jrms.jorge'>
+                  <a>
+                    <FaGitlab style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+                <Link href='https://www.linkedin.com/in/jorgemachadodeveloper/'>
+                  <a>
+                    <FaLinkedin style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+                <Link href='https://api.whatsapp.com/send?phone=5511932471824'>
+                  <a>
+                    <FaWhatsapp style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+              </div>
+              <div className={flexbox.col__2}>
+                <Link href='https://jmsoftwares.com.br/'>
+                  <a>
+                    <FaCode style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+                <Link href='https://www.freecodecamp.org/jmachado'>
+                  <a>
+                    <FaFreeCodeCamp style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+                <Link href='https://medium.com/@Jorge_Machado'>
+                  <a>
+                    <FaMedium style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+                <Link href='https://www.youtube.com/'>
+                  <a>
+                    <FaYoutube style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                  </a>
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className={flexbox.col__6}>
-            <div className={styles.skills__container}>
-              {professional.skills.map((skill, i) => (
-                <>
-                  <div key={i} className={styles.portfolio__skillbars}>
-                    <Image
-                      className={styles.portfolio__lang__img}
-                      src={skill.imgLang}
-                      width={40}
-                      height={40}
-                    />
-                    <div className={styles.portfolio__bar}>
-                      <div className={styles.portfolio__skill} style={{ width: skill.level }}>{skill.level}</div>
-                    </div>
-                  </div>
-                </>
-              ))}
-            </div>
+            <h1
+              className={styles.headline}
+            >
+              {professional.name}
+            </h1>
+            <h3
+              className={styles.sub__headline}
+            >
+              {professional.role}
+            </h3>
+            <h3
+              className={styles.sub__headline}
+            >
+              Hour: &nbsp;
+              <span
+                className={styles.highlight}
+              >
+                {professional.hourValue}
+              </span>
+            </h3>
           </div>
         </div>
-      </header>
+        <div className={flexbox.col__6}>
+          <div className={styles.skills__container}>
+            {professional.skills.map((skill, i) => (
+              <>
+                <div key={i} className={styles.portfolio__skillbars}>
+                  <Image
+                    className={styles.portfolio__lang__img}
+                    src={skill.imgLang}
+                    width={40}
+                    height={40}
+                  />
+                  <div className={styles.portfolio__bar}>
+                    <div className={styles.portfolio__skill} style={{ width: skill.level }}>{skill.level}</div>
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

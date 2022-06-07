@@ -3,7 +3,7 @@ import styles from '../styles/css/Card.module.css';
 import Link from 'next/link';
 import flexbox from '../styles/css/Flexbox.module.css'
 
-const Card = ({ card, key }) => {
+const Card = ({ card, key, children }) => {
 
   return (
     <div className={card.columnLength} >
@@ -23,6 +23,7 @@ const Card = ({ card, key }) => {
           </Link>
         </div>
       </div>
+      { children }
     </div >
   )
 }
