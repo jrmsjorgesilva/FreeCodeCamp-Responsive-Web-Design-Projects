@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/css/Card.module.css';
 import Link from 'next/link';
-import flexbox from '../styles/css/Flexbox.module.css'
 
 const Card = ({ card, key, children }) => {
 

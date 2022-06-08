@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa';
 import Image from 'next/image'
 import Link from 'next/link'
+import PortfolioForm from './PortfolioForm';
 
 const PortfolioHero = () => {
 
@@ -95,51 +96,51 @@ const PortfolioHero = () => {
                 <Image
                   src='/img_portfolio/photo.jpg'
                   className={styles.portfolio__profile}
-                  width={300}
-                  height={300}
+                  width={240}
+                  height={240}
                 />
               </div>
               <div className={flexbox.col__2}>
                 <Link href='https://github.com/jrmsjorgesilva'>
                   <a>
-                    <FaGithub style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaGithub style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
                 <Link href='https://gitlab.com/jrms.jorge'>
                   <a>
-                    <FaGitlab style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaGitlab style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
                 <Link href='https://www.linkedin.com/in/jorgemachadodeveloper/'>
                   <a>
-                    <FaLinkedin style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaLinkedin style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
                 <Link href='https://api.whatsapp.com/send?phone=5511932471824'>
                   <a>
-                    <FaWhatsapp style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaWhatsapp style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
               </div>
               <div className={flexbox.col__2}>
                 <Link href='https://jmsoftwares.com.br/'>
                   <a>
-                    <FaCode style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaCode style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
                 <Link href='https://www.freecodecamp.org/jmachado'>
                   <a>
-                    <FaFreeCodeCamp style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaFreeCodeCamp style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
                 <Link href='https://medium.com/@Jorge_Machado'>
                   <a>
-                    <FaMedium style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaMedium style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
                 <Link href='https://www.youtube.com/'>
                   <a>
-                    <FaYoutube style={{ display: 'block', fontSize: '60px', margin: '12px' }} />
+                    <FaYoutube style={{ display: 'block', fontSize: '50px', margin: '12px' }} />
                   </a>
                 </Link>
               </div>
@@ -164,6 +165,7 @@ const PortfolioHero = () => {
                 {professional.hourValue}
               </span>
             </h3>
+            <PortfolioForm styleBtn={styles.portfolio__btn} />
           </div>
         </div>
         <div className={flexbox.col__6}>

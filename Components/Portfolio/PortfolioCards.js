@@ -4,7 +4,7 @@ import styles from '../../styles/css/Portfolio.module.css'
 import flexbox from '../../styles/css/Flexbox.module.css'
 import { FaGithub, FaGitlab, FaBitbucket } from 'react-icons/fa'
 import Image from 'next/image'
-import BtnGroup from '../BtnGroup'
+import PortfolioFilterPannel from './PortfolioFilterPannel'
 
 const PortfolioCards = () => {
 
@@ -89,31 +89,18 @@ const PortfolioCards = () => {
   }
 
   const filterPortfolio = (img) => {
-
     if (!filteredPortfolio) return filteredPortfolio === [...portfolioJobs];
-
     setFilteredPortfolio(portfolioJobs.filter(elem => elem.stackImg.includes(img)));
   }
 
   return (
     <section className={styles.portfolio__cards}>
       <h1 className={styles.headline}>Portfolio do Profissional</h1>
-      <div className={styles.portfolio__filter__pannel}>
-        <BtnGroup changeCols={changeCols} />
-        <div className={styles.portfolio__img__filter}>
-          {imgLanguages.map((img, key) => (
-            <a key={key} onClick={() => filterPortfolio(img)}>
-              <Image
-                alt='imagens a filtrar'
-                src={img}
-                width={50}
-                height={50}
-              />
-            </a>
-          ))}
-        </div>
-      </div>
-
+      <PortfolioFilterPannel
+        imgLanguages={imgLanguages}
+        filterPortfolio={filterPortfolio}
+        changeCols={changeCols}
+      />
       <div className={flexbox.row}>
         {filteredPortfolio.length > 0 ? filteredPortfolio.map((card, key) => (
           <Card card={card} key={key} >
