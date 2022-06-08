@@ -23,7 +23,8 @@
 .portfolio__card {
   margin: 20px;
   padding: 30px 20px;
-  color: white;
+  color: #333;
+  font-weight: bolder;
   background-color: magenta;
   border-radius: 10px;
   border: 1px outset magenta;
@@ -77,13 +78,27 @@
   margin: 20px 5px;
 }
 
-.portfolio__skillbars {
+.skills__container a {
+  cursor: pointer;
+  -webkit-transition: opacity, -webkit-transform .4s ease;
+  transition: opacity, -webkit-transform .4s ease;
+  transition: opacity, transform .4s ease;
+  transition: opacity, transform .4s ease, -webkit-transform .4s ease;
+}
+
+.skills__container a:hover {
+  opacity: .9;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.skills__container .portfolio__skillbars {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.portfolio__bar {
+.skills__container .portfolio__skillbars .portfolio__bar {
   margin: 10px 30px;
   width: 80%;
   height: 100%;
@@ -94,18 +109,18 @@
           box-shadow: rgba(12, 34, 21, 0.2) 2px 1px 2px 2px;
 }
 
-.portfolio__skill {
+.skills__container .portfolio__skillbars .portfolio__skill {
   text-align: right;
   color: white;
   font-weight: 900;
   border-radius: 5px;
   background-color: magenta;
+  -webkit-transition: background-color .3s ease;
+  transition: background-color .3s ease;
 }
 
-.portfolio__skill Image {
-  position: absolute;
-  -webkit-transform: translateY(130px);
-          transform: translateY(130px);
+.skills__container .portfolio__skillbars .portfolio__skill:hover {
+  background-color: #e403e4;
 }
 
 .portfolio__btn {
@@ -132,7 +147,7 @@
           transform: translateY(-1px);
 }
 
-@-webkit-keyframes octocat-wave {
+@-webkit-keyframes octocat__wave {
   0%,
   100% {
     -webkit-transform: rotate(0);
@@ -150,7 +165,7 @@
   }
 }
 
-@keyframes octocat-wave {
+@keyframes octocat__wave {
   0%,
   100% {
     -webkit-transform: rotate(0);
@@ -169,13 +184,18 @@
 }
 
 @media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
+  .github__corner:hover .octo-arm {
     -webkit-animation: none;
             animation: none;
   }
-  .github-corner .octo-arm {
-    -webkit-animation: octocat-wave 560ms ease-in-out;
-            animation: octocat-wave 560ms ease-in-out;
+  .github__corner .octo-arm {
+    -webkit-animation: octocat__wave 560ms ease-in-out;
+            animation: octocat__wave 560ms ease-in-out;
   }
+}
+
+.github__corner:hover .octo__arm {
+  -webkit-animation: octocat__wave 560ms ease-in-out;
+          animation: octocat__wave 560ms ease-in-out;
 }
 /*# sourceMappingURL=Portfolio.module.css.map */

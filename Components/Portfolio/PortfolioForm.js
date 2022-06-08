@@ -68,10 +68,6 @@ const PortfolioForm = ({ styleBtn }) => {
         styleBtn={styleBtn}
       >
         CONTRATAR &rarr;
-
-      {inputName}
-      {inputMail}
-      {inputProject}
       </Button >
 
     </>
