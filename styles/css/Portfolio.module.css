@@ -25,6 +25,8 @@
   padding: 30px 20px;
   color: #333;
   font-weight: bolder;
+  background: radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.3) 32%, rgba(255, 255, 255, 0) 33%) 0 0, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.1) 11%, rgba(255, 255, 255, 0.3) 13%, rgba(255, 255, 255, 0) 14%) 0 0, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 17%, rgba(255, 255, 255, 0.43) 19%, rgba(255, 255, 255, 0) 20%) 0 110px, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 11%, rgba(255, 255, 255, 0.4) 13%, rgba(255, 255, 255, 0) 14%) -130px -170px, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 11%, rgba(255, 255, 255, 0.4) 13%, rgba(255, 255, 255, 0) 14%) 130px 370px, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.1) 11%, rgba(255, 255, 255, 0.2) 13%, rgba(255, 255, 255, 0) 14%) 0 0, linear-gradient(45deg, #e465b5 0%, #c463da 20%, #d557e8 30%, #d840ce 40%, #a441d6 50%, #8721b3 60%, #a91b91 70%, #c32b9b 80%, #d036c5 90%, #f434fa 100%) !important;
+  background-size: 470px 470px, 970px 970px, 410px 410px, 610px 610px, 530px 530px, 730px 730px, 100% 100% !important;
   background-color: magenta;
   border-radius: 10px;
   border: 1px outset magenta;
@@ -147,6 +149,12 @@
           transform: translateY(-1px);
 }
 
+.portfolio__float__btn {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+
 @-webkit-keyframes octocat__wave {
   0%,
   100% {
@@ -197,5 +205,27 @@
 .github__corner:hover .octo__arm {
   -webkit-animation: octocat__wave 560ms ease-in-out;
           animation: octocat__wave 560ms ease-in-out;
+}
+
+.portfolio__form__container {
+  -webkit-backdrop-filter: blur(2px) !important;
+          backdrop-filter: blur(2px) !important;
+}
+
+.portfolio__form__container .portfolio__form__input {
+  background-color: white !important;
+  padding: 20px 15px;
+  border: none;
+}
+
+.portfolio__form__container .portfolio__form__popup {
+  background: radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.3) 32%, rgba(255, 255, 255, 0) 33%) 0 0, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.1) 11%, rgba(255, 255, 255, 0.3) 13%, rgba(255, 255, 255, 0) 14%) 0 0, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 17%, rgba(255, 255, 255, 0.43) 19%, rgba(255, 255, 255, 0) 20%) 0 110px, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 11%, rgba(255, 255, 255, 0.4) 13%, rgba(255, 255, 255, 0) 14%) -130px -170px, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 11%, rgba(255, 255, 255, 0.4) 13%, rgba(255, 255, 255, 0) 14%) 130px 370px, radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.1) 11%, rgba(255, 255, 255, 0.2) 13%, rgba(255, 255, 255, 0) 14%) 0 0, linear-gradient(45deg, #e465b5 0%, #c463da 20%, #d557e8 30%, #d840ce 40%, #a441d6 50%, #8721b3 60%, #a91b91 70%, #c32b9b 80%, #d036c5 90%, #f434fa 100%) !important;
+  background-size: 470px 470px, 970px 970px, 410px 410px, 610px 610px, 530px 530px, 730px 730px, 100% 100% !important;
+  background-color: magenta !important;
+}
+
+.portfolio__form__container .portfolio__form__title {
+  color: white !important;
+  font-weight: 900 !important;
 }
 /*# sourceMappingURL=Portfolio.module.css.map */

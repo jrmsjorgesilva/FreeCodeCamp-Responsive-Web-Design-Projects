@@ -11,43 +11,56 @@ const PortfolioForm = ({ styleBtn }) => {
   const [inputProject, setInputProject] = useState(() => '');
 
   const openForm = () => {
-    Swal.fire({
+
+    const swalStyles = Swal.mixin({
+      customClass: {
+        title: styles.portfolio__form__title,
+        input: styles.portfolio__form__input,
+        confirmButton: styles.portfolio__btn,
+        cancelButton: styles.portfolio__btn,
+        popup: styles.portfolio__form__popup,
+        container: styles.portfolio__form__container,
+      },
+      buttonsStyling: false,
+    })
+
+    swalStyles.fire({
       title: 'Insira o nome do contratante',
       input: 'text',
       inputAttributes: {
         autocapitalize: 'off'
       },
-      showCancelButton: true,
-      confirmButtonText: 'Próximo',
-      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Avançar',
       showLoaderOnConfirm: true,
       preConfirm: (name) => {
 
         setInputName(name);
 
-        Swal.fire({
+        swalStyles.fire({
           title: 'Insira seu email de contato',
           input: 'email',
           inputAttributes: {
             autocapitalize: 'off'
           },
           showCancelButton: true,
-          confirmButtonText: 'Próximo',
           cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Próximo',
+          background: 'magenta',
           showLoaderOnConfirm: true,
           preConfirm: (mail) => {
 
             setInputMail(mail);
 
-            Swal.fire({
+            swalStyles.fire({
               title: 'Fale um pouco mais sobre seu projeto',
               input: 'textarea',
               inputAttributes: {
                 autocapitalize: 'off'
               },
               showCancelButton: true,
-              confirmButtonText: 'Enviar',
               cancelButtonText: 'Cancelar',
+              confirmButtonText: 'Enviar',
+              background: 'magenta',
               showLoaderOnConfirm: true,
               preConfirm: (project) => {
                 setInputProject(project)
@@ -61,15 +74,12 @@ const PortfolioForm = ({ styleBtn }) => {
 
   return (
     <>
-
-
       <Button
         onClick={() => openForm()}
         styleBtn={styleBtn}
       >
         CONTRATAR &rarr;
       </Button >
-
     </>
   )
 }

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../styles/css/Portfolio.module.css';
 import flexbox from '../../styles/css/Flexbox.module.css';
 import {
@@ -17,7 +17,7 @@ import Link from 'next/link'
 import PortfolioForm from './PortfolioForm';
 import Swal from 'sweetalert2';
 
-const PortfolioHero = () => {
+const PortfolioHero = ({ showHide, setShowHide }) => {
 
   const professional = {
     name: 'Jorge Roberto Machado da Silva',
@@ -88,7 +88,20 @@ const PortfolioHero = () => {
   }
 
   const skillDetails = (skill) => {
-    Swal.fire({
+
+    const swalStyles = Swal.mixin({
+      customClass: {
+        title: styles.portfolio__form__title,
+        input: styles.portfolio__form__input,
+        confirmButton: styles.portfolio__btn,
+        cancelButton: styles.portfolio__btn,
+        popup: styles.portfolio__form__popup,
+        container: styles.portfolio__form__container,
+      },
+      buttonsStyling: false,
+    })
+
+    swalStyles.fire({
       title: skill.lang,
       text: `breve descrição. Level: ${skill.level}`,
       imageUrl: skill.imgLang,
@@ -99,7 +112,7 @@ const PortfolioHero = () => {
   }
 
   return (
-    <section className={styles.portfolio__hero}>
+    <section id='portfolio__hero' className={styles.portfolio__hero}>
       <div className={flexbox.row}>
         <div className={flexbox.col__6}>
           <div className={styles.portfolio__card}>
