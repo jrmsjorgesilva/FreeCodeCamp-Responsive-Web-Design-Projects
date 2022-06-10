@@ -63,7 +63,15 @@ const PortfolioForm = ({ styleBtn }) => {
               background: 'magenta',
               showLoaderOnConfirm: true,
               preConfirm: (project) => {
+
                 setInputProject(project)
+                
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Entraremos em contato assim que possível :)',
+                  showConfirmButton: false,
+                  timer: 3000
+                })
               }
             })
           }

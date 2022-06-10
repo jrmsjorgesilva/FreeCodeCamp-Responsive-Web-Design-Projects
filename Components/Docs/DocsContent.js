@@ -1,9 +1,12 @@
 import React from 'react'
+import DocsSideNav from './DocsSideNav'
+import DocsBody from './DocsBody'
 
 const DocsContent = () => {
     return (
         <div>
-            <h1>Conteudo docs</h1>
+            <DocsSideNav />
+            <DocsBody />
         </div>
     )
 }
