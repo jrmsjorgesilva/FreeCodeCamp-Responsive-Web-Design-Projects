@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../styles/css/Docs.module.css'
 import DocsCodeSandbox from './DocsCodeSandbox'
 import DocsCodeSnippet from './DocsCodeSnippet'
+import Link from 'next/link'
 
 const DocsBody = () => {
 
@@ -13,6 +14,9 @@ const DocsBody = () => {
 
   const codeSnippets =
   {
+    block: `
+      ({... })
+    `,
     functionGreet: `
       function greetMe(yourName) {
         alert("Hello " + yourName) 
@@ -42,18 +46,49 @@ const DocsBody = () => {
     `,
     ifExample: `
       if (condition) {statement_1; } else {statement_2; }
-    `
+    `,
+    ifExampleTwo: `
+      if (condition_1) {statement_1; } else if (condition_2) {statement_2;
+      } else if (condition_n) {statement_n; } else {statement_last; }
+    `,
+    ifExampleThree: `
+    if (condition) {statement_1_runs_if_condition_is_true;
+      statement_2_runs_if_condition_is_true; } else {
+            statement_3_runs_if_condition_is_false;
+      statement_4_runs_if_condition_is_false; }
+    `,
+    ifExampleFour: `
+      if (x = y) { 
+        // statements here 
+      }
+    `,
+    ifExampleFive: `
+      if ((x = y)) { 
+        // statements here
+      }
+    `,
+    whileExample: `
+      while (condition) {
+        // statements
+      }
+    `,
+    whileExampleTwo: `
+      var n = 0; 
+      var x = 0; 
+      while (n &lt; 3) {
+        n++; x += n; 
+      }
+    `,
+    functionExample: `
+      function square(number) { 
+        return number * number; 
+      }
+    `,
+    functionExampleTwo: `
+      return number * number;
+    `,
+
   }
-
-  // console.log('fsdfsdfds', codeSnippets[0].functionGreet)
-
-  // const exampleCode = `
-  // function greetMe(yourName) {
-  //   alert("Hello " + yourName) 
-  // }
-
-  // greetMe("World")
-  // `
 
   return (
     <main id="main-doc" className={styles.main__doc}>
@@ -186,7 +221,7 @@ const DocsBody = () => {
           <p>
             By simply assigning it a value. For example, <code>x = 42.</code> This
             always declares a global variable. It generates a strict JavaScript
-            warning. You shouldn't use this variant.
+            warning. You shouldnt use this variant.
           </p>
           <p>
             With the keyword let. For example,<code> let y = 13.</code> This syntax
@@ -300,7 +335,7 @@ const DocsBody = () => {
                 </li>
                 <li>undefined. A top-level property whose value is undefined.</li>
                 <li>Number. 42 or 3.14159.</li>
-                <li>String. "Howdy"</li>
+                <li>String. Howdy</li>
                 <li>
                   Symbol (new in ECMAScript 2015). A data type whose instances are
                   unique and immutable.
@@ -336,30 +371,30 @@ const DocsBody = () => {
             You may also compound the statements using else if to have multiple
             conditions tested in sequence, as follows:
           </p>
-          {/* <code
-          >if (condition_1) {statement_1; } else if (condition_2) {statement_2;
-        } else if (condition_n) {statement_n; } else {statement_last; }
-          </code> */}
+          <DocsCodeSnippet>
+            {codeSnippets.ifExampleTwo}
+          </DocsCodeSnippet>
           In the case of multiple conditions only the first logical condition which
           evaluates to true will be executed. To execute multiple statements, group
-          {/* them within a block statement ({... }) . In general, it's good practice */}
+          them within a block statement <code>{codeSnippets.block}</code> . In general, its good practice
           to always use block statements, especially when nesting if statements:
 
-          {/* <code
-          >if (condition) {statement_1_runs_if_condition_is_true;
-        statement_2_runs_if_condition_is_true; } else {
-              statement_3_runs_if_condition_is_false;
-        statement_4_runs_if_condition_is_false; }</code
-          > */}
+          <DocsCodeSnippet>
+            {codeSnippets.ifExampleThree}
+          </DocsCodeSnippet>
           It is advisable to not use simple assignments in a conditional expression,
           because the assignment can be confused with equality when glancing over
           the code. For example, do not use the following code:
-          {/* <code>if (x = y) { // statements here }</code>  */}
+          <DocsCodeSnippet>
+            {codeSnippets.ifExampleFour}
+          </DocsCodeSnippet>
           If you need to use an
           assignment in a conditional expression, a common practice is to put
           additional parentheses around the assignment. For example:
 
-          {/* <code>if ((x = y)) { // statements here</code> } */}
+          <DocsCodeSnippet>
+            {codeSnippets.ifExampleFive}
+          </DocsCodeSnippet>
         </article>
       </section>
       <section className={styles.docs} id="while_statement">
@@ -368,7 +403,9 @@ const DocsBody = () => {
           A while statement executes its statements as long as a specified condition
           evaluates to true. A while statement looks as follows:
 
-          {/* <code>while (condition) statement</code>  */}
+          <DocsCodeSnippet>
+            {codeSnippets.whileExample}
+          </DocsCodeSnippet>
           If the condition becomes false,
           statement within the loop stops executing and control passes to the
           statement following the loop.
@@ -381,7 +418,7 @@ const DocsBody = () => {
           </p>
 
           <p>
-            {/* To execute multiple statements, use a block statement ({... }) to group */}
+            To execute multiple statements, use a block statement <code>{codeSnippets.block}</code> to group
             those statements.
           </p>
 
@@ -389,7 +426,9 @@ const DocsBody = () => {
 
           <p>The following while loop iterates as long as n is less than three:</p>
 
-          {/* <code>var n = 0; var x = 0; while (n &lt; 3) {n++; x += n; }</code> */}
+          <DocsCodeSnippet>
+            {codeSnippets.whileExampleTwo}
+          </DocsCodeSnippet>
           <p>
             With each iteration, the loop increments n and adds that value to x.
             Therefore, x and n take on the following values:
@@ -420,21 +459,25 @@ const DocsBody = () => {
             </li>
             <li>
               The JavaScript statements that define the function, enclosed in curly
-              brackets, { }.
+              brackets, <code>{ }</code>.
             </li>
           </ul>
           <p>
             For example, the following code defines a simple function named square:
           </p>
 
-          {/* <code>function square(number) { return number * number; }</code> */}
+          <DocsCodeSnippet>
+            {codeSnippets.functionExample}
+          </DocsCodeSnippet>
           <p>
             The function square takes one argument, called number. The function
             consists of one statement that says to return the argument of the
             function (that is, number) multiplied by itself. The return statement
             specifies the value returned by the function.
           </p>
-          {/* <code>return number * number;</code> */}
+          <DocsCodeSnippet>
+            {codeSnippets.functionExampleTwo}
+          </DocsCodeSnippet>
           <p>
             Primitive parameters (such as a number) are passed to functions by
             value; the value is passed to the function, but if the function changes
@@ -448,12 +491,15 @@ const DocsBody = () => {
         <article>
           <ul>
             <li>
-              All the documentation in this page is taken from
-              <a
+              All the documentation in this page is taken from &nbsp;
+              <Link
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
                 target="_blank"
-              >MDN</a
               >
+                <a>
+                  MDN
+                </a>
+              </Link>
             </li>
           </ul>
         </article>

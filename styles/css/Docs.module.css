@@ -73,18 +73,28 @@
   word-break: normal;
   word-wrap: normal;
   line-height: 2;
-  background-color: #f7f7f7;
+  background-color: #333;
+  color: lime;
   padding: 15px;
   margin: 10px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.code__clipboardIcon {
+  display: block;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.code__clipboardIcon:focus, .code__clipboardIcon:hover {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  font-size: 13px;
 }
 
 @media only screen and (max-width: 815px) {
   /* For mobile phones: */
-  .sidebar ul {
-    border: 1px solid;
-    height: 207px;
-  }
   .sidebar {
     background-color: white;
     position: absolute;
@@ -96,6 +106,10 @@
     border: none;
     z-index: 1;
     border-bottom: 2px solid;
+  }
+  .sidebar ul {
+    border: 1px solid;
+    height: 207px;
   }
   .main__doc {
     position: relative;
@@ -115,6 +129,9 @@
     padding-left: 10px;
     padding-right: 45px;
     min-width: 233px;
+  }
+  .code__clipboardIcon {
+    display: none;
   }
 }
 /*# sourceMappingURL=Docs.module.css.map */
