@@ -75,7 +75,7 @@ const DocsBody = () => {
     whileExampleTwo: `
       var n = 0; 
       var x = 0; 
-      while (n &lt; 3) {
+      while (n < 3) {
         n++; x += n; 
       }
     `,

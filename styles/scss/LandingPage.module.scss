@@ -2,6 +2,16 @@
 
 // sections
 
+.lp__hero,
+.lp__features,
+.lp__video,
+.lp__price,
+.lp__demo,
+.lp__form,
+.lp__footer {
+    padding: 50px;
+}
+
 .lp__hero {
     position: relative;
     min-height: 100vh;

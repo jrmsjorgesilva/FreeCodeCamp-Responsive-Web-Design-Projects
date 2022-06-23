@@ -128,3 +128,43 @@
   }
 
 }
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 768px) {
+  
+  .btn__form {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    padding: 6px 20px;
+    height: 60px;
+
+  }
+
+  .form__control {
+    margin: 80px 10%;
+  
+    input {
+      display: block;
+      width: 100%;
+      padding: 6px 20px;
+      font-size: 20px;
+    }
+  
+  }
+
+  .hero__text__title {
+    top: 30%;
+    font-size: 42px;
+    margin: 0px 5%;
+  }
+  
+  .hero__text__content {
+    text-align: left;
+    top: 50%;
+    margin: 0px 5%;
+    font-size: 20px;
+  }
+  
+}
