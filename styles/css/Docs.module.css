@@ -1,7 +1,7 @@
 .sidebar {
   background-color: #ffc2f3;
   position: fixed;
-  min-width: 290px;
+  min-width: 310px;
   top: 0px;
   left: 0px;
   width: 300px;
@@ -10,22 +10,8 @@
   border-color: #ccc;
 }
 
-.docs__header {
-  color: black;
-  margin: 10px;
-  text-align: center;
-  font-size: 1.9em;
-  font-weight: thin;
-}
-
-.main__doc header {
-  text-align: left;
-  color: magenta;
-  margin: 0px;
-}
-
 .sidebar ul {
-  height: 88%;
+  height: 90%;
   padding: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -47,21 +33,35 @@
   cursor: pointer;
 }
 
+.sidebar .docs__header {
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.9em;
+  font-weight: thin;
+}
+
 .main__doc {
-  background-color: white;
+  background-color: #eee;
   position: absolute;
   margin-left: 310px;
   padding: 20px;
   margin-bottom: 110px;
 }
 
-.docs article {
+.main__doc header {
+  text-align: left;
+  color: magenta;
+  margin: 0px;
+}
+
+.main__doc .docs article {
   color: #4d4e53;
   margin: 15px;
   font-size: 0.96em;
 }
 
-.docs li {
+.main__doc .docs li {
   margin: 15px 0px 0px 20px;
 }
 

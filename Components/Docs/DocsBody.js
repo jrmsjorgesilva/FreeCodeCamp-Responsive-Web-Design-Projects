@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../../styles/css/Docs.module.css'
 import DocsCodeSandbox from './DocsCodeSandbox'
+import DocsCodeSnippet from './DocsCodeSnippet'
 
 const DocsBody = () => {
 
@@ -9,6 +10,50 @@ const DocsBody = () => {
 
     }
   ]
+
+  const codeSnippets =
+  {
+    functionGreet: `
+      function greetMe(yourName) {
+        alert("Hello " + yourName) 
+      }
+        
+      greetMe("World")
+    `,
+    variablesExample: `
+      if (true) { var x = 5; } console.log(x); // 5
+    `,
+    variablesExampleTwo: `
+      if (true) {let y = 5; } console.log(y); // ReferenceError: y is not defined
+    `,
+    constantsExample: `
+      const PI = 3.14;
+    `,
+    constantsExampleTwo: `
+      // THIS WILL CAUSE AN ERROR
+          function f() { }; const f = 5;
+          // THIS WILL CAUSE AN ERROR ALSO 
+          function f() { 
+          const g = 5; var g; //statements
+        }
+    `,
+    constantsExampleThree: `
+      const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";
+    `,
+    ifExample: `
+      if (condition) {statement_1; } else {statement_2; }
+    `
+  }
+
+  // console.log('fsdfsdfds', codeSnippets[0].functionGreet)
+
+  // const exampleCode = `
+  // function greetMe(yourName) {
+  //   alert("Hello " + yourName) 
+  // }
+
+  // greetMe("World")
+  // `
 
   return (
     <main id="main-doc" className={styles.main__doc}>
@@ -71,14 +116,14 @@ const DocsBody = () => {
           <p>
             JavaScript and Java are similar in some ways but fundamentally different
             in some others. The JavaScript language resembles Java but does not have
-            Java's static typing and strong type checking. JavaScript follows most
+            Javas static typing and strong type checking. JavaScript follows most
             Java expression syntax, naming conventions and basic control-flow
             constructs which was the reason why it was renamed from LiveScript to
             JavaScript.
           </p>
 
           <p>
-            In contrast to Java's compile-time system of classes built by
+            In contrast to Javas compile-time system of classes built by
             declarations, JavaScript supports a runtime system based on a small
             number of data types representing numeric, Boolean, and string values.
             JavaScript has a prototype-based object model instead of the more common
@@ -101,11 +146,11 @@ const DocsBody = () => {
         <header>Hello world</header>
         <article>
           To get started with writing JavaScript, open the Scratchpad and write your
-          first "Hello world" JavaScript code:
-          {/* <code
-          >function greetMe(yourName) {alert("Hello " + yourName); }
-            greetMe("World");
-          </code> */}
+          first Hello world JavaScript code:
+
+          <DocsCodeSnippet>
+            {codeSnippets.functionGreet}
+          </DocsCodeSnippet>
 
           Select the code in the pad and hit Ctrl+R to watch it unfold in your
           browser!
@@ -120,8 +165,8 @@ const DocsBody = () => {
         <p>
           A JavaScript identifier must start with a letter, underscore (_), or
           dollar sign ($); subsequent characters can also be digits (0-9). Because
-          JavaScript is case sensitive, letters include the characters "A" through
-          "Z" (uppercase) and the characters "a" through "z" (lowercase).
+          JavaScript is case sensitive, letters include the characters A through
+          Z (uppercase) and the characters a through z (lowercase).
         </p>
         <p>
           You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers.
@@ -169,16 +214,17 @@ const DocsBody = () => {
             context) within which x is declared, not the block, which in this case
             is an if statement.
           </p>
-          {/* <code>if (true) { var x = 5; } console.log(x); // 5</code> */}
+          <DocsCodeSnippet>
+            {codeSnippets.variablesExample}
+          </DocsCodeSnippet>
           <p>
             This behavior changes, when using the let declaration introduced in
             ECMAScript 2015.
           </p>
 
-          {/* <code
-          >if (true) {let y = 5; } console.log(y); // ReferenceError: y is not
-            defined</code
-          > */}
+          <DocsCodeSnippet>
+            {codeSnippets.variablesExampleTwo}
+          </DocsCodeSnippet>
         </article>
       </section>
       <section className={styles.docs} id="Global_variables">
@@ -209,7 +255,9 @@ const DocsBody = () => {
             can contain alphabetic, numeric, or underscore characters.
           </p>
 
-          <code>const PI = 3.14;</code>
+          <DocsCodeSnippet>
+            {codeSnippets.constantsExample}
+          </DocsCodeSnippet>
           <p>
             A constant cannot change value through assignment or be re-declared
             while the script is running. It has to be initialized to a value.
@@ -226,16 +274,14 @@ const DocsBody = () => {
             variable in the same scope. For example:
           </p>
 
-          {/* <code
-          >// THIS WILL CAUSE AN ERROR function f() { }; const f = 5; // THIS WILL
-            CAUSE AN ERROR ALSO function f() { const g = 5; var g; //statements
-        }</code
-          >
+          <DocsCodeSnippet>
+            {codeSnippets.constantsExampleTwo}
+          </DocsCodeSnippet>
           However, object attributes are not protected, so the following statement
           is executed without problems.
-          <code
-          >const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";</code
-          > */}
+          <DocsCodeSnippet>
+            {codeSnippets.constantsExampleThree}
+          </DocsCodeSnippet>
         </article>
       </section>
       <section className={styles.docs} id="Data_types">
@@ -278,7 +324,9 @@ const DocsBody = () => {
           true. Use the optional else clause to execute a statement if the condition
           is false. An if statement looks as follows:
 
-          {/* <code>if (condition) {statement_1; } else {statement_2; }</code> */}
+          <DocsCodeSnippet>
+            {codeSnippets.ifExample}
+          </DocsCodeSnippet>
           condition can be any expression that evaluates to true or false. See
           Boolean for an explanation of what evaluates to true and false. If
           condition evaluates to true, statement_1 is executed; otherwise,

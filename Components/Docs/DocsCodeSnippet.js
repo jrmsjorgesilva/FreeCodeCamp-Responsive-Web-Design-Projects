@@ -1,15 +1,15 @@
 import React from 'react'
 
-const DocsCodeSnippet = () => {
+const DocsCodeSnippet = ({ children }) => {
 
     const codeCopy = () => {
         //TODO: criar funcionalidade de copy automatico do código ao clicar
     }
 
   return (
-    <div>
-        DocsCodeSnippet
-    </div>
+    <code>
+        {children}
+    </code>
   )
 }
 
