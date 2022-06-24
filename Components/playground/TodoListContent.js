@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+import TodoListItem from './TodoListItem';
+import Swal from 'sweetalert2';
 
 const TodoListContent = () => {
 
     // states
     const [items, setItems] = useState(() => [{
-        name: 'lucas escaiuolquer',
-        height: '123',
+        id: 1,
+        name: 'fgdsgdfg'
     }])
 
     const [insertedName, setInsertedName] = useState(() => '');
@@ -14,25 +16,6 @@ const TodoListContent = () => {
     // ref 
     const inputNameRef = useRef();
     const inputHeightRef = useRef();
-
-    // useEffect 
-    useEffect(() => {
-
-        const fetchData = async () => {
-
-            const API_URL = 'https://swapi.dev/api/people';
-
-            const res = await fetch(API_URL);
-
-            const person = await res.json();
-
-            setItems(person.results);
-
-        }
-
-        fetchData();
-
-    }, [])
 
     // functions
     const handleInputName = (e) => {
@@ -43,7 +26,7 @@ const TodoListContent = () => {
         setInsertedHeight(e.target.value);
     }
 
-    const cleanForm = () => {
+    const clearForm = () => {
         setInsertedName('');
         setInsertedHeight('');
 
@@ -58,7 +41,40 @@ const TodoListContent = () => {
         }
         setItems([...items, newItem]);
 
-        cleanForm();
+        clearForm();
+    }
+
+    const removeItem = (idItemToBeRemoved) => {
+        const newList = items.filter(item => item.id !== idItemToBeRemoved);
+        setItems(newList);
+    }
+
+    const editItem = (idItemToBeEdited) => {
+        // todo
+        Swal.fire({
+            title: 'Edit Name',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Confirm change',
+            showLoaderOnConfirm: true,
+            preConfirm: (newName) => {
+                const editedItems = items;
+                editedItems.forEach(item => {
+                    if (item.id === idItemToBeEdited) {
+                        item.name = newName
+                    }
+                })
+                // const itemToBeEdited = items.filter(item => item.id === idItemToBeEdited)
+                // const editedItem = itemToBeEdited.map(item => item.name = newName);
+                // console.log('itemToBeEdited', itemToBeEdited)
+
+                setItems((editedItemsInsideState) => editedItemsInsideState = editedItems);
+                console.log('editedItems, items', editedItems, items)
+            }
+        })
     }
 
     return (
@@ -74,9 +90,12 @@ const TodoListContent = () => {
                 textAlign: 'center'
             }}
         >
-            {
-                items.map((item, index) => <div key={index}>{item.name} - {item.height}</div>)
-            }
+            <TodoListItem
+                items={items}
+                setItems={setItems}
+                removeItem={removeItem}
+                editItem={editItem}
+            />
             <input
                 ref={inputNameRef}
                 placeholder='Novo Nome'
