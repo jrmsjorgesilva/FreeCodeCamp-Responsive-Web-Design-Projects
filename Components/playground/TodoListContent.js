@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import TodoListItem from './TodoListItem';
 import Swal from 'sweetalert2';
 
 const TodoListContent = () => {
 
     // states
-    const [items, setItems] = useState(() => [{
-        id: 1,
-        name: 'fgdsgdfg'
-    }])
+    const [items, setItems] = useState(() => [])
 
     const [insertedName, setInsertedName] = useState(() => '');
     const [insertedHeight, setInsertedHeight] = useState(() => '');
@@ -61,18 +58,45 @@ const TodoListContent = () => {
             confirmButtonText: 'Confirm change',
             showLoaderOnConfirm: true,
             preConfirm: (newName) => {
-                const editedItems = items;
+                const editedItems = items.map(item => item);
                 editedItems.forEach(item => {
                     if (item.id === idItemToBeEdited) {
                         item.name = newName
                     }
                 })
-                // const itemToBeEdited = items.filter(item => item.id === idItemToBeEdited)
-                // const editedItem = itemToBeEdited.map(item => item.name = newName);
-                // console.log('itemToBeEdited', itemToBeEdited)
 
                 setItems((editedItemsInsideState) => editedItemsInsideState = editedItems);
-                console.log('editedItems, items', editedItems, items)
+            }
+        })
+    }
+
+    const showDetails = (item) => {
+
+        const itemText = `
+            Name: ${item.name ? item.name : 'none'} \n 
+            Height: ${item.height ? item.height : 'none'} \n
+            Birth Year: ${item.birth_year ? item.birth_year : 'none'} \n
+            Gender: ${item.gender ? item.gender : 'none'} \n
+        `;
+
+        Swal.fire({
+            icon: 'success',
+            title: itemText,
+            showCancelButton: true,
+            cancelButtonText: 'Delete',
+            showConfirmButton: true,
+            confirmButtonText: 'Edit',
+        }).then((result) => {
+            // confirms edit button
+            if (result.isConfirmed) {
+                // edit function
+                editItem(item.id);
+            } else if (
+                //confirms cancel button
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                // delete function
+                removeItem(item.id);
             }
         })
     }
@@ -95,6 +119,7 @@ const TodoListContent = () => {
                 setItems={setItems}
                 removeItem={removeItem}
                 editItem={editItem}
+                showDetails={showDetails}
             />
             <input
                 ref={inputNameRef}

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { FaTrash, FaEdit, FaTrashAlt } from 'react-icons/fa'
+import React, { useEffect } from 'react'
+import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 
-const TodoListItem = ({ items, setItems, removeItem, editItem }) => {
+const TodoListItem = ({ items, setItems, removeItem, editItem, showDetails }) => {
 
     // useEffect 
     useEffect(() => {
@@ -36,9 +36,14 @@ const TodoListItem = ({ items, setItems, removeItem, editItem }) => {
         <>
             {
                 items.map(item => (
-                    <div key={item.id} >
-                        {item.name} - {item.height}
-                        <FaTrash
+                    <div key={item.id}>
+                        <span 
+                            style={{ cursor: 'pointer' }} 
+                            onClick={() => showDetails(item)}
+                        >
+                            {item.name} - {item.height}
+                        </span>
+                        <FaTrashAlt
                             onClick={() => removeItem(item.id)}
                             role='button'
                             style={{
