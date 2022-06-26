@@ -1,0 +1,12 @@
+.card {
+  display: 'block';
+  min-width: '220px';
+  background-color: 'whitesmoke';
+  color: 'lime';
+  border: '3px solid lime';
+  border-radius: '6px';
+  cursor: 'pointer';
+  padding: '15px 20px';
+  margin: '5px 20px';
+}
+/*# sourceMappingURL=HackerSaga.module.css.map */

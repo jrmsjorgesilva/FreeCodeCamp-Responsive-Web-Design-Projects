@@ -1,21 +1,9 @@
 import React, { useState } from 'react'
+import styles from '../../../styles/css/HackerSaga.module.css'
 
 const GameCards = ({ setMoney }) => {
 
-    // styles 
-    const styleBtn = {
-      display: 'block',
-      minWidth: '220px',
-      backgroundColor: 'whitesmoke',
-      color: 'lime',
-      border: '3px solid lime',
-      borderRadius: '6px',
-      cursor: 'pointer',
-      padding: '15px 20px',
-      margin: '5px 20px',
-    }
-
-    // data
+  // data
   const [cardsList, setCardsList] = useState(() => [
     { id: 1, mission: 'Roubar e vender senhas', timeToComplete: 5000, missionPayment: 50 },
     { id: 2, mission: 'Clonar Cartão', timeToComplete: 15000, missionPayment: 80 },
@@ -36,8 +24,8 @@ const GameCards = ({ setMoney }) => {
       <h1 className={{}}>Hacking Terminal</h1>
       {
         cardsList.map(card => (
-          <button 
-            style={styleBtn}
+          <button
+            className={styles.card}
             key={card.id}
             onClick={() => initMission(card)}
           >

@@ -1,20 +1,8 @@
 import React from 'react'
 import { FaCogs, FaFileCode, FaCartPlus, FaFighterJet } from 'react-icons/fa'
+import styles from '../../../styles/css/HackerSaga.module.css'
 
 const GameTabs = ({ gameTab, setGameTab }) => {
-
-  // styles 
-  const styleBtn = {
-    display: 'inline-block',
-    backgroundColor: 'lime',
-    color: 'white',
-    border: 'none',
-    cursor: 'pointer',
-    padding: '10px 30px',
-    margin: '40px 0px',
-    fontSize: '26px',
-    fontWeight: 'bold'
-  }
 
   // functions 
   const handleTabs = (newTab) => {
@@ -24,7 +12,7 @@ const GameTabs = ({ gameTab, setGameTab }) => {
   return (
     <div style={{ width: '100%' }}>
       <button
-        style={styleBtn}
+        className={styles.btnTab}
         onClick={() => handleTabs('cards')}
       >
         <FaFileCode
@@ -36,7 +24,7 @@ const GameTabs = ({ gameTab, setGameTab }) => {
         Hackear
       </button>
       <button
-        style={styleBtn}
+        className={styles.btnTab}
         onClick={() => handleTabs('shop')}
       >
         <FaCartPlus
@@ -48,7 +36,7 @@ const GameTabs = ({ gameTab, setGameTab }) => {
         Comprar
       </button>
       <button
-        style={styleBtn}
+        className={styles.btnTab}
         onClick={() => handleTabs('challenge')}
       >
         <FaFighterJet
@@ -60,7 +48,7 @@ const GameTabs = ({ gameTab, setGameTab }) => {
         Desafios
       </button>
       <button
-        style={styleBtn}
+      className={styles.btnTab}
         onClick={() => handleTabs('config')}
       >
         <FaCogs
