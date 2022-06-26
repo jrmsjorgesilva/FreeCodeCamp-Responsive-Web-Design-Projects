@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import GameTabs from './GameTabs'
 import GameCards from './GameCards'
 import GameShop from './GameShop'
+import GameChallenge from './GameChallenge'
 
 const GameBoard = () => {
+
+  const [gameTab, setGameTab] = useState(() => 'cards')
+
+  console.log('FDGDFG', gameTab);
+
   return (
     <>
-        <GameTabs />
-        <GameCards />
-        <GameShop />
+        <GameTabs 
+          gameTab={gameTab} 
+          setGameTab={setGameTab} 
+        />
+        {gameTab === 'cards' && <GameCards />}
+        {gameTab === 'shop' && <GameShop />}
+        {gameTab === 'challenge' && <GameChallenge />}
     </>
   )
 }
