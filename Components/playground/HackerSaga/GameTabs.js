@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaCogs, FaFileCode, FaCartPlus, FaFighterJet } from 'react-icons/fa'
 
 const GameTabs = ({ gameTab, setGameTab }) => {
 
@@ -22,23 +23,53 @@ const GameTabs = ({ gameTab, setGameTab }) => {
 
   return (
     <div style={{ width: '100%' }}>
-      <button 
+      <button
         style={styleBtn}
         onClick={() => handleTabs('cards')}
       >
+        <FaFileCode
+          style={{
+            color: 'white',
+            margin: '-3px 10px',
+          }}
+        />
         Hackear
       </button>
-      <button 
+      <button
         style={styleBtn}
         onClick={() => handleTabs('shop')}
       >
+        <FaCartPlus
+          style={{
+            color: 'white',
+            margin: '-3px 10px',
+          }}
+        />
         Comprar
       </button>
-      <button 
+      <button
         style={styleBtn}
         onClick={() => handleTabs('challenge')}
       >
+        <FaFighterJet
+          style={{
+            color: 'white',
+            margin: '-3px 10px',
+          }}
+        />
         Desafios
+      </button>
+      <button
+        style={styleBtn}
+        onClick={() => handleTabs('config')}
+      >
+        <FaCogs
+          style={{
+            color: 'white',
+            margin: '-3px 10px',
+          }}
+        />
+        Configurações
       </button>
     </div>
   )
