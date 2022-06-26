@@ -4,7 +4,7 @@ import GameCards from './GameCards'
 import GameShop from './GameShop'
 import GameChallenge from './GameChallenge'
 
-const GameBoard = () => {
+const GameBoard = ({ money, setMoney }) => {
 
   const [gameTab, setGameTab] = useState(() => 'cards')
 
@@ -16,7 +16,7 @@ const GameBoard = () => {
           gameTab={gameTab} 
           setGameTab={setGameTab} 
         />
-        {gameTab === 'cards' && <GameCards />}
+        {gameTab === 'cards' && <GameCards setMoney={setMoney} />}
         {gameTab === 'shop' && <GameShop />}
         {gameTab === 'challenge' && <GameChallenge />}
     </>
