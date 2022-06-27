@@ -5,7 +5,7 @@ import { FaCode, FaReact } from 'react-icons/fa'
 
 const GameContent = () => {
 
-    const [money, setMoney] = useState(() => 8000);
+    const [money, setMoney] = useState(() => 50000);
 
     const [acquiredItems, setAcquiredItems] = useState(() => []);
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../../../styles/css/HackerSaga.module.css'
-import { FaCode, FaReact, FaRedux, FaAngular, FaVue } from 'react-icons/fa';
+import { FaCode, FaReact, FaJs, FaAngular } from 'react-icons/fa';
 
 const GameShop = ({ money, setMoney, acquiredItems, setAcquiredItems }) => {
 
@@ -9,24 +9,24 @@ const GameShop = ({ money, setMoney, acquiredItems, setAcquiredItems }) => {
     { id: 1, icon: <FaCode />, product: 'Computador Gamer', price: 1000, priceCurrency: (1000).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) },
     { id: 2, icon: <FaReact />, product: 'Celular', price: 15000, priceCurrency: (15000).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) },
     { id: 3, icon: <FaAngular />, product: 'Cartão Clonado', price: 20000, priceCurrency: (20000).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) },
-    { id: 4, icon: <FaVue />, product: 'Base de dados Clandestina', price: 50000, priceCurrency: (50000).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) },
+    { id: 4, icon: <FaJs />, product: 'Base de dados Clandestina', price: 50000, priceCurrency: (50000).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) },
   ]);
 
   // functions
   const buyProduct = (product) => {
-    if (money <= product.price) throw console.log('sua vida foi um erro')
+    // impede compra sem dinheiro 
+    if (money < product.price) throw console.log('sua vida foi um erro')
+
+    // impede repetição
+    if(acquiredItems.includes(product)) return
 
     const newProductAcquired = product;
     setAcquiredItems([
       ...acquiredItems,
       newProductAcquired
     ]);
-    handlePayment(product)
-    console.log('SERASE', acquiredItems);
-  }
-
-  const handlePayment = (product) => {
     setMoney((moneyInsideState) => moneyInsideState - product.price);
+    console.log('SERASE', acquiredItems);
   }
 
   return (
