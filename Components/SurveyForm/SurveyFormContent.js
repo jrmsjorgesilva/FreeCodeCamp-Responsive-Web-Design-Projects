@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../styles/css/SurveyForm.module.css';
 import Input from '../Input';
+import Select from '../Select'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -16,6 +17,48 @@ const SurveyFormContent = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
+
+    const [optionUserSituation, setOptionUserSituation] = useState(() => [
+        {
+            content: 'Estudante',
+            value: 'student'
+        },
+        {
+            content: 'Trabalho em Tempo Integral',
+            value: 'fulltimejob'
+        },
+        {
+            content: 'Estuda em Tempo integral',
+            value: 'fulltimelearner'
+        },
+        {
+            content: 'Prefiro Não Informar',
+            value: 'prefernottosay'
+        },
+        {
+            content: 'Outro(s)',
+            value: 'other'
+        },
+    ])
+
+    const [optionFavoriteCourse, setOptionFavoriteCourse] = useState(() => [
+        {
+            content: 'HTML and CSS',
+            value: 'frontendjuniordeveloper'
+        },
+        {
+            content: 'Javascript',
+            value: 'datastrutures'
+        },
+        {
+            content: 'React JS',
+            value: 'frontendseniordeveloper'
+        },
+        {
+            content: 'Node Js',
+            value: 'fullstackdeveloper'
+        }
+    ])
 
     const [toggle, setToggle] = useState(() => null);
     const [select, setSelect] = useState(() => null);
@@ -43,7 +86,7 @@ const SurveyFormContent = () => {
     }
 
     const handleSelect = (e) => {
-        return
+        console.log('fdsafsdf', e.target.value)
     }
 
     const handleToggle = (e) => {
@@ -103,48 +146,16 @@ const SurveyFormContent = () => {
                     inputType={'number'}
                     placeholder={'Idade'}
                     inputTitle={'idade'}
-                    styleError={null}
-                    contentError={null}
                 />
 
-                <label className={styles.form__label}>
-                    O que melhor descreve a sua situação?
-                    <select
-                        className={styles.form__select}
-                        onChange={(e) => { }}
-                    >
-                        <option
-                            value='student'
-                        >
-                            Estudante
-                        </option>
-
-                        <option
-                            value='fulltimejob'
-                        >
-                            Trabalho em Tempo Integral
-                        </option>
-
-                        <option
-                            value='fulltimelearner'
-                        >
-                            Estuda em Tempo integral
-                        </option>
-
-                        <option
-                            value='prefernottosay'
-                        >
-                            Prefiro Não Informar
-                        </option>
-
-                        <option
-                            value='other'
-                        >
-                            Outro(s)
-                        </option>
-
-                    </select>
-                </label>
+                <Select 
+                    select={select}
+                    handleSelect={handleSelect}
+                    optionValues={optionUserSituation}
+                    styleLabel={styles.form__label}
+                    labelTitle={'O que melhor descreve a sua situação?'}
+                    styleSelect={styles.form__select}                    
+                />
 
                 <label className={styles.form__label}>
                     Você recomendaria o FreeCodeCamp para um amigo?
@@ -182,6 +193,15 @@ const SurveyFormContent = () => {
                         Nem que a vaca tussa
                     </div>
                 </label>
+
+                <Select 
+                    select={select}
+                    handleSelect={handleSelect}
+                    optionValues={optionFavoriteCourse}
+                    styleLabel={styles.form__label}
+                    labelTitle={'Qual sua matéria favorita no FreeCodeCamp?'}
+                    styleSelect={styles.form__select}                    
+                />
 
                 <label className={styles.form__label}>
                     Você recomendaria Jorge Machado para alguma empresa?
