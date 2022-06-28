@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../styles/css/SurveyForm.module.css';
 import Input from '../Input';
-import Select from '../Select'
+import Select from '../Select';
+import TextArea from '../TextArea';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -148,13 +149,13 @@ const SurveyFormContent = () => {
                     inputTitle={'idade'}
                 />
 
-                <Select 
+                <Select
                     select={select}
                     handleSelect={handleSelect}
                     optionValues={optionUserSituation}
                     styleLabel={styles.form__label}
                     labelTitle={'O que melhor descreve a sua situação?'}
-                    styleSelect={styles.form__select}                    
+                    styleSelect={styles.form__select}
                 />
 
                 <label className={styles.form__label}>
@@ -194,24 +195,22 @@ const SurveyFormContent = () => {
                     </div>
                 </label>
 
-                <Select 
+                <Select
                     select={select}
                     handleSelect={handleSelect}
                     optionValues={optionFavoriteCourse}
                     styleLabel={styles.form__label}
                     labelTitle={'Qual sua matéria favorita no FreeCodeCamp?'}
-                    styleSelect={styles.form__select}                    
+                    styleSelect={styles.form__select}
                 />
 
-                <label className={styles.form__label}>
-                    Você recomendaria Jorge Machado para alguma empresa?
-                    <textarea
-                        className={styles.form__textarea}
-                        rows={6}
-                        placeholder='Descreva suas impressões dele aqui'
-                    >
-                    </textarea>
-                </label>
+                <TextArea
+                    styleLabel={styles.form__label}
+                    labelTitle={'Você recomendaria Jorge Machado para alguma empresa?'}
+                    styleTextArea={styles.form__textarea}
+                    textRows={6}
+                    placeholder={'Descreva suas impressões dele aqui'}
+                />
 
                 <button
                     className={styles.form__btn}
