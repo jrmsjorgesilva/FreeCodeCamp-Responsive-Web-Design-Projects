@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import styles from '../../styles/css/SurveyForm.module.css'
-import { useForm } from 'react-hook-form'
+import React, { useState, useEffect } from 'react';
+import styles from '../../styles/css/SurveyForm.module.css';
+import Input from '../Input';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { FaTimes, FaInfo, FaExclamationCircle } from 'react-icons/fa'
+import { FaTimes, FaInfo, FaExclamationCircle } from 'react-icons/fa';
 
 const SurveyFormContent = () => {
 
@@ -18,7 +19,7 @@ const SurveyFormContent = () => {
 
     const [toggle, setToggle] = useState(() => null);
     const [select, setSelect] = useState(() => null);
-    const [check, setCheck] = useState(() => null);
+    const [check, setCheck] = useState(() => 'yes');
     const [input, setInput] = useState(() => null);
 
     console.log('errors', errors);
@@ -33,8 +34,12 @@ const SurveyFormContent = () => {
         setInput(e.target.value)
     }
 
-    const handleCheck = () => {
-        return
+    const isRadioSelected = (value) => {
+        return check === value;
+    }
+
+    const handleCheck = (e) => {
+        setCheck(e.target.value)
     }
 
     const handleSelect = (e) => {
@@ -57,67 +62,50 @@ const SurveyFormContent = () => {
                 className={styles.form__control}
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <label className={styles.form__label}>
-                    Nome
-                    <input
-                        type='name'
-                        className={styles.form__input}
-                        value={input}
-                        onChange={(e) => handleInput(e)}
-                        pĺaceholder='Nome completo'
-                        {...register('name', { required: true })}
-                    />
-                    {
-                        errors.name &&
-                        <span
-                            className={styles.form__errors}
-                        >
-                            <FaExclamationCircle
-                                style={{
-                                    color: 'white',
-                                    margin: '0px 5px'
-                                }}
-                            />
-                            É necessário preencher o nome completo
-                        </span>
-                    }
-                </label>
+                <Input
+                    input={input}
+                    handleInput={handleInput}
+                    register={register}
+                    errors={errors}
+                    inputLabel={'Nome'}
+                    styleLabel={styles.form__label}
+                    styleInput={styles.form__input}
+                    inputType={'name'}
+                    placeholder={'Nome completo'}
+                    inputTitle={'name'}
+                    styleError={styles.form__errors}
+                    contentError={'É necessário preencher o nome completo'}
+                />
 
-                <label className={styles.form__label}>
-                    Email
-                    <input
-                        type='email'
-                        className={styles.form__input}
-                        value={input}
-                        onChange={(e) => handleInput(e)}
-                        pĺaceholder='Melhor email'
-                        {...register('email', { required: true })}
-                    />
-                    {
-                        errors.email &&
-                        <span className={styles.form__errors}>
-                            <FaExclamationCircle
-                                style={{
-                                    color: 'white',
-                                    margin: '0px 5px'
-                                }}
-                            />
-                            É necessário preencher um email válido
-                        </span>
-                    }
-                </label>
+                <Input
+                    input={input}
+                    handleInput={handleInput}
+                    register={register}
+                    errors={errors}
+                    inputLabel={'Email'}
+                    styleLabel={styles.form__label}
+                    styleInput={styles.form__input}
+                    inputType={'email'}
+                    placeholder={'Melhor email'}
+                    inputTitle={'email'}
+                    styleError={styles.form__errors}
+                    contentError={'É necessário preencher um email válido'}
+                />
 
-                <label className={styles.form__label}>
-                    Idade (opcional)
-                    <input
-                        type='number'
-                        className={styles.form__input}
-                        value={input}
-                        onChange={(e) => handleInput(e)}
-                        pĺaceholder='Idade'
-                        {...register('idade')}
-                    />
-                </label>
+                <Input
+                    input={input}
+                    handleInput={handleInput}
+                    register={register}
+                    errors={false}
+                    inputLabel={'Idade (opcional)'}
+                    styleLabel={styles.form__label}
+                    styleInput={styles.form__input}
+                    inputType={'number'}
+                    placeholder={'Idade'}
+                    inputTitle={'idade'}
+                    styleError={null}
+                    contentError={null}
+                />
 
                 <label className={styles.form__label}>
                     O que melhor descreve a sua situação?
@@ -156,6 +144,43 @@ const SurveyFormContent = () => {
                         </option>
 
                     </select>
+                </label>
+
+                <label className={styles.form__label}>
+                    Você recomendaria o FreeCodeCamp para um amigo?
+                    <div>
+                        <input
+                            className={styles.form__radio}
+                            type="radio"
+                            value="yes"
+                            name="recommend"
+                            checked={isRadioSelected('yes')}
+                            onChange={handleCheck}
+                        />
+                        Sem dúvida
+                    </div>
+                    <div>
+                        <input
+                            className={styles.form__radio}
+                            type="radio"
+                            value="maybe"
+                            name="recommend"
+                            checked={isRadioSelected('maybe')}
+                            onChange={handleCheck}
+                        />
+                        Poderia considerar
+                    </div>
+                    <div>
+                        <input
+                            className={styles.form__radio}
+                            type="radio"
+                            value="no"
+                            name="recommend"
+                            checked={isRadioSelected('no')}
+                            onChange={handleCheck}
+                        />
+                        Nem que a vaca tussa
+                    </div>
                 </label>
 
                 <label className={styles.form__label}>

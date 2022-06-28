@@ -25,7 +25,7 @@ const GameShop = ({ money, setMoney, acquiredItems, setAcquiredItems }) => {
       ...acquiredItems,
       newProductAcquired
     ]);
-    setMoney((moneyInsideState) => moneyInsideState - product.price);
+    setMoney((moneyInsideState) => moneyInsideState - product.price); 
     console.log('SERASE', acquiredItems);
   }
 
