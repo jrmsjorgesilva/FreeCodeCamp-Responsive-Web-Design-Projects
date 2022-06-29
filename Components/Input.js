@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from '../styles/css/SurveyForm.module.css'
 import { FaExclamationCircle } from 'react-icons/fa';
 
 
@@ -17,6 +16,7 @@ const Input = ({
     styleError,
     contentError
 }) => {
+
     return (
         <label className={styleLabel}>
             {inputLabel}

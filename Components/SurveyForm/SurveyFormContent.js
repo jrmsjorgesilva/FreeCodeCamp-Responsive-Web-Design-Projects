@@ -3,7 +3,8 @@ import styles from '../../styles/css/SurveyForm.module.css';
 import Input from '../Input';
 import Select from '../Select';
 import TextArea from '../TextArea';
-import { useForm } from 'react-hook-form';
+import Button from '../Button'
+import { set, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { FaTimes, FaInfo, FaExclamationCircle } from 'react-icons/fa';
@@ -61,37 +62,69 @@ const SurveyFormContent = () => {
         }
     ])
 
-    const [toggle, setToggle] = useState(() => null);
-    const [select, setSelect] = useState(() => null);
-    const [check, setCheck] = useState(() => 'yes');
-    const [input, setInput] = useState(() => null);
+    const [inputName, setInputName] = useState(() => '');
+    const [inputEmail, setInputEmail] = useState(() => '');
+    const [inputAge, setInputAge] = useState(() => '');
+
+    const [selectUserSituation, setSelectUserSituation] = useState(() => '');
+    const [selectFavoriteCourse, setSelectFavoriteCourse] = useState(() => '');
+
+    const [radio, setRadio] = useState(() => 'yes');
+
+    const [textAreaMessage, setTextAreaMessage] = useState(() => '');
+
+    const [checkbox, setCheckbox] = useState(() => 'courses');
 
     console.log('errors', errors);
 
     const onSubmit = (formData) => {
         // e.preventDefault();
         console.log('errors', errors);
-        return
+        return;
     }
 
-    const handleInput = (e) => {
-        setInput(e.target.value)
+    const handleInputName = (e) => {
+        setInputName(e.target.value);
+        console.log('input', e.target.value);
+    }
+
+    const handleInputEmail = (e) => {
+        setInputEmail(e.target.value);
+        console.log('input', inputEmail);
+    }
+
+    const handleInputAge = (e) => {
+        setInputAge(e.target.value);
+        console.log('input', inputAge);
     }
 
     const isRadioSelected = (value) => {
-        return check === value;
+        return radio === value;
     }
 
-    const handleCheck = (e) => {
-        setCheck(e.target.value)
+    const handleRadio = (e) => {
+        setRadio(e.target.value);
     }
 
-    const handleSelect = (e) => {
-        console.log('fdsafsdf', e.target.value)
+    const handleSelectUserSituation = (e) => {
+        setSelectUserSituation(e.target.value);
     }
 
-    const handleToggle = (e) => {
-        return
+    const handleSelectFavoriteCourse = (e) => {
+        setSelectFavoriteCourse(e.target.value);
+    }
+
+    const handleTextAreaMessage = (e) => {
+        setTextAreaMessage(e.target.value);
+        console.log(textAreaMessage);
+    }
+
+    const handleCheckBox = (value) => {
+        // setCheckbox(value);
+    }
+
+    const handleInput = (e) => {
+        console.log('seaese');
     }
 
     return (
@@ -107,8 +140,8 @@ const SurveyFormContent = () => {
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Input
-                    input={input}
-                    handleInput={handleInput}
+                    input={inputName}
+                    handleInput={handleInputName}
                     register={register}
                     errors={errors}
                     inputLabel={'Nome'}
@@ -122,8 +155,8 @@ const SurveyFormContent = () => {
                 />
 
                 <Input
-                    input={input}
-                    handleInput={handleInput}
+                    input={inputEmail}
+                    handleInput={handleInputEmail}
                     register={register}
                     errors={errors}
                     inputLabel={'Email'}
@@ -137,8 +170,8 @@ const SurveyFormContent = () => {
                 />
 
                 <Input
-                    input={input}
-                    handleInput={handleInput}
+                    input={inputAge}
+                    handleInput={handleInputAge}
                     register={register}
                     errors={false}
                     inputLabel={'Idade (opcional)'}
@@ -150,8 +183,8 @@ const SurveyFormContent = () => {
                 />
 
                 <Select
-                    select={select}
-                    handleSelect={handleSelect}
+                    select={selectUserSituation}
+                    handleSelect={handleSelectUserSituation}
                     optionValues={optionUserSituation}
                     styleLabel={styles.form__label}
                     labelTitle={'O que melhor descreve a sua situação?'}
@@ -167,7 +200,7 @@ const SurveyFormContent = () => {
                             value="yes"
                             name="recommend"
                             checked={isRadioSelected('yes')}
-                            onChange={handleCheck}
+                            onChange={handleRadio}
                         />
                         Sem dúvida
                     </div>
@@ -178,7 +211,7 @@ const SurveyFormContent = () => {
                             value="maybe"
                             name="recommend"
                             checked={isRadioSelected('maybe')}
-                            onChange={handleCheck}
+                            onChange={handleRadio}
                         />
                         Poderia considerar
                     </div>
@@ -189,15 +222,15 @@ const SurveyFormContent = () => {
                             value="no"
                             name="recommend"
                             checked={isRadioSelected('no')}
-                            onChange={handleCheck}
+                            onChange={handleRadio}
                         />
                         Nem que a vaca tussa
                     </div>
                 </label>
 
                 <Select
-                    select={select}
-                    handleSelect={handleSelect}
+                    select={selectFavoriteCourse}
+                    handleSelect={handleSelectFavoriteCourse}
                     optionValues={optionFavoriteCourse}
                     styleLabel={styles.form__label}
                     labelTitle={'Qual sua matéria favorita no FreeCodeCamp?'}
@@ -209,15 +242,50 @@ const SurveyFormContent = () => {
                     labelTitle={'Você recomendaria Jorge Machado para alguma empresa?'}
                     styleTextArea={styles.form__textarea}
                     textRows={6}
+                    onChange={handleTextAreaMessage}
                     placeholder={'Descreva suas impressões dele aqui'}
                 />
 
-                <button
-                    className={styles.form__btn}
-                    type='submit'
+                <label className={styles.form__label}>
+                    Que features da nossa plataforma você gostaria de ver melhoradas?
+                    <div>
+                        <input
+                            className={styles.form__checkbox}
+                            type="checkbox"
+                            value="courses"
+                            name="recommend"
+                            onChange={handleCheckBox('courses')}
+                        />
+                        Mais Cursos
+                    </div>
+                    <div>
+                        <input
+                            className={styles.form__checkbox}
+                            type="checkbox"
+                            value="challenges"
+                            name="recommend"
+                            onChange={handleCheckBox('challenges')}
+                        />
+                        Mais Desafios
+                    </div>
+                    <div>
+                        <input
+                            className={styles.form__checkbox}
+                            type="checkbox"
+                            value="tests"
+                            name="recommend"
+                            onChange={handleCheckBox('tests')}
+                        />
+                        Provas mais dificeis
+                    </div>
+                </label>
+
+                <Button
+                    styleBtn={styles.form__btn}
+                    btnType={'submit'}
                 >
                     Enviar &rarr;
-                </button>
+                </Button>
 
             </form>
 

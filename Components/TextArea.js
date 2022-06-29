@@ -5,7 +5,8 @@ const TextArea = ({
     labelTitle,
     styleTextArea,
     textRows,
-    placeholder
+    placeholder,
+    onChange,
  }) => {
     return (
         <label className={styleLabel}>
@@ -14,6 +15,7 @@ const TextArea = ({
                 className={styleTextArea}
                 rows={textRows}
                 placeholder={placeholder}
+                onChange={onChange}
             >
             </textarea>
         </label>
