@@ -1,12 +1,13 @@
 import React from 'react'
 
 const TextArea = ({ 
+    register,
+    registerTitle,
     styleLabel,
     labelTitle,
     styleTextArea,
     textRows,
     placeholder,
-    onChange,
  }) => {
     return (
         <label className={styleLabel}>
@@ -15,7 +16,7 @@ const TextArea = ({
                 className={styleTextArea}
                 rows={textRows}
                 placeholder={placeholder}
-                onChange={onChange}
+                {...register(registerTitle)}
             >
             </textarea>
         </label>

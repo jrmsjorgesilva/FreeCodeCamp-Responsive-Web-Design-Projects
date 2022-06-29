@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../../styles/css/SurveyForm.module.css';
+// states 
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+// components
 import Input from '../Input';
 import Select from '../Select';
 import TextArea from '../TextArea';
 import Button from '../Button'
+// libs
 import { set, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { FaTimes, FaInfo, FaExclamationCircle } from 'react-icons/fa';
+import { uuid } from 'uuidv4';
+// styles
+import styles from '../../styles/css/SurveyForm.module.css';
+// firebase
+import firebaseApp from '../Database/firebase';
+import { getDatabase, ref, set as firebaseSet } from "firebase/database";
+
 
 const SurveyFormContent = () => {
 
@@ -19,6 +28,8 @@ const SurveyFormContent = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
+
+    const router = useRouter();
 
     const [optionUserSituation, setOptionUserSituation] = useState(() => [
         {
@@ -62,69 +73,22 @@ const SurveyFormContent = () => {
         }
     ])
 
-    const [inputName, setInputName] = useState(() => '');
-    const [inputEmail, setInputEmail] = useState(() => '');
-    const [inputAge, setInputAge] = useState(() => '');
-
-    const [selectUserSituation, setSelectUserSituation] = useState(() => '');
-    const [selectFavoriteCourse, setSelectFavoriteCourse] = useState(() => '');
-
-    const [radio, setRadio] = useState(() => 'yes');
-
-    const [textAreaMessage, setTextAreaMessage] = useState(() => '');
-
-    const [checkbox, setCheckbox] = useState(() => 'courses');
-
-    console.log('errors', errors);
+    const setFirebaseFormData = (formData) => {
+        const db = getDatabase();
+        firebaseSet(ref(db, 'Form_Data_' + formData.email), {
+            ...formData
+        });
+    }
 
     const onSubmit = (formData) => {
         // e.preventDefault();
-        console.log('errors', errors);
+        console.log('errors', formData);
+
+        setFirebaseFormData(formData);
+
+        router.push('/offer');
+
         return;
-    }
-
-    const handleInputName = (e) => {
-        setInputName(e.target.value);
-        console.log('input', e.target.value);
-    }
-
-    const handleInputEmail = (e) => {
-        setInputEmail(e.target.value);
-        console.log('input', inputEmail);
-    }
-
-    const handleInputAge = (e) => {
-        setInputAge(e.target.value);
-        console.log('input', inputAge);
-    }
-
-    const isRadioSelected = (value) => {
-        return radio === value;
-    }
-
-    const handleRadio = (e) => {
-        setRadio(e.target.value);
-    }
-
-    const handleSelectUserSituation = (e) => {
-        setSelectUserSituation(e.target.value);
-    }
-
-    const handleSelectFavoriteCourse = (e) => {
-        setSelectFavoriteCourse(e.target.value);
-    }
-
-    const handleTextAreaMessage = (e) => {
-        setTextAreaMessage(e.target.value);
-        console.log(textAreaMessage);
-    }
-
-    const handleCheckBox = (value) => {
-        // setCheckbox(value);
-    }
-
-    const handleInput = (e) => {
-        console.log('seaese');
     }
 
     return (
@@ -139,52 +103,50 @@ const SurveyFormContent = () => {
                 className={styles.form__control}
                 onSubmit={handleSubmit(onSubmit)}
             >
+
                 <Input
-                    input={inputName}
-                    handleInput={handleInputName}
                     register={register}
+                    registerTitle={'name'}
                     errors={errors}
                     inputLabel={'Nome'}
                     styleLabel={styles.form__label}
                     styleInput={styles.form__input}
                     inputType={'name'}
                     placeholder={'Nome completo'}
-                    inputTitle={'name'}
+                    anyError={errors.name}
                     styleError={styles.form__errors}
                     contentError={'É necessário preencher o nome completo'}
                 />
 
                 <Input
-                    input={inputEmail}
-                    handleInput={handleInputEmail}
                     register={register}
+                    registerTitle={'email'}
                     errors={errors}
                     inputLabel={'Email'}
                     styleLabel={styles.form__label}
                     styleInput={styles.form__input}
                     inputType={'email'}
                     placeholder={'Melhor email'}
-                    inputTitle={'email'}
+                    anyError={errors.email}
                     styleError={styles.form__errors}
                     contentError={'É necessário preencher um email válido'}
                 />
 
                 <Input
-                    input={inputAge}
-                    handleInput={handleInputAge}
                     register={register}
+                    registerTitle={'idade'}
                     errors={false}
+                    anyError={false}
                     inputLabel={'Idade (opcional)'}
                     styleLabel={styles.form__label}
                     styleInput={styles.form__input}
                     inputType={'number'}
                     placeholder={'Idade'}
-                    inputTitle={'idade'}
                 />
 
                 <Select
-                    select={selectUserSituation}
-                    handleSelect={handleSelectUserSituation}
+                    register={register}
+                    registerTitle={'userSituation'}
                     optionValues={optionUserSituation}
                     styleLabel={styles.form__label}
                     labelTitle={'O que melhor descreve a sua situação?'}
@@ -199,8 +161,7 @@ const SurveyFormContent = () => {
                             type="radio"
                             value="yes"
                             name="recommend"
-                            checked={isRadioSelected('yes')}
-                            onChange={handleRadio}
+                            {...register('recommendYes')}
                         />
                         Sem dúvida
                     </div>
@@ -210,8 +171,7 @@ const SurveyFormContent = () => {
                             type="radio"
                             value="maybe"
                             name="recommend"
-                            checked={isRadioSelected('maybe')}
-                            onChange={handleRadio}
+                            {...register('recommendMaybe')}
                         />
                         Poderia considerar
                     </div>
@@ -221,16 +181,15 @@ const SurveyFormContent = () => {
                             type="radio"
                             value="no"
                             name="recommend"
-                            checked={isRadioSelected('no')}
-                            onChange={handleRadio}
+                            {...register('recommendNo')}
                         />
                         Nem que a vaca tussa
                     </div>
                 </label>
 
                 <Select
-                    select={selectFavoriteCourse}
-                    handleSelect={handleSelectFavoriteCourse}
+                    register={register}
+                    registerTitle={'favoriteCourse'}
                     optionValues={optionFavoriteCourse}
                     styleLabel={styles.form__label}
                     labelTitle={'Qual sua matéria favorita no FreeCodeCamp?'}
@@ -238,11 +197,12 @@ const SurveyFormContent = () => {
                 />
 
                 <TextArea
+                    register={register}
+                    registerTitle={'message'}
                     styleLabel={styles.form__label}
                     labelTitle={'Você recomendaria Jorge Machado para alguma empresa?'}
                     styleTextArea={styles.form__textarea}
                     textRows={6}
-                    onChange={handleTextAreaMessage}
                     placeholder={'Descreva suas impressões dele aqui'}
                 />
 
@@ -252,9 +212,9 @@ const SurveyFormContent = () => {
                         <input
                             className={styles.form__checkbox}
                             type="checkbox"
-                            value="courses"
-                            name="recommend"
-                            onChange={handleCheckBox('courses')}
+                            value="yes"
+                            name="improvements"
+                            {...register('improveCourses')}
                         />
                         Mais Cursos
                     </div>
@@ -262,9 +222,9 @@ const SurveyFormContent = () => {
                         <input
                             className={styles.form__checkbox}
                             type="checkbox"
-                            value="challenges"
-                            name="recommend"
-                            onChange={handleCheckBox('challenges')}
+                            value="yes"
+                            name="improvements"
+                            {...register('improveChallenges')}
                         />
                         Mais Desafios
                     </div>
@@ -272,9 +232,9 @@ const SurveyFormContent = () => {
                         <input
                             className={styles.form__checkbox}
                             type="checkbox"
-                            value="tests"
-                            name="recommend"
-                            onChange={handleCheckBox('tests')}
+                            value="yes"
+                            name="improvements"
+                            {...register('improveTests')}
                         />
                         Provas mais dificeis
                     </div>

@@ -1,21 +1,19 @@
 import React from 'react';
 
 const Select = ({
-    select,
-    handleSelect,
+    register,
+    registerTitle,
     optionValues,
     styleLabel,
     labelTitle,
-    styleSelect,
-
+    styleSelect
 }) => {
     return (
         <label className={styleLabel}>
             {labelTitle}
             <select
                 className={styleSelect}
-                onChange={(e) => handleSelect(e)}
-                value={select}
+                {...register(registerTitle)}
             >
                 {optionValues.map(option =>
                     <option

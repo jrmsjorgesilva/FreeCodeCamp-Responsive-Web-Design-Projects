@@ -3,16 +3,15 @@ import { FaExclamationCircle } from 'react-icons/fa';
 
 
 const Input = ({
-    input,
-    handleInput,
     register,
     errors,
     inputLabel,
     styleLabel,
     styleInput,
+    anyError,
     inputType,
     placeholder,
-    inputTitle,
+    registerTitle,
     styleError,
     contentError
 }) => {
@@ -23,13 +22,12 @@ const Input = ({
             <input
                 type={inputType}
                 className={styleInput}
-                value={input}
-                onChange={(e) => handleInput(e)}
+                defaultValue=''
                 pĺaceholder={placeholder}
-                {...register(inputTitle, { required: true })}
+                {...register(registerTitle, { required: true })}
             />
             {
-                errors.name &&
+                anyError &&
                 <span
                     className={styleError}
                 >
