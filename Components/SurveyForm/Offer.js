@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-// firebase
-import firebaseApp from '../Database/firebase';
-import {
-  getDatabase,
-  ref,
-  child,
-  get as firebaseGet
-} from "firebase/database";
 // libs
 import { set, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -21,31 +13,7 @@ import styles from '../../styles/css/SurveyForm.module.css';
 
 const Offer = ({ persona }) => {
 
-  const [firebaseValueSelected, setFirebaseValueSelected] = useState(() => []);
-
   const router = useRouter();
-
-  useEffect(() => {
-
-    const getFirebaseFormData = async () => {
-      const db = getDatabase();
-      const dbRef = ref(db);
-      firebaseGet(dbRef)
-        .then((snapshot) => {
-          if (snapshot.exists()) {
-            console.log(Object.values(snapshot.val()).map(item => item.name));
-            setFirebaseValueSelected(Object.values(snapshot.val()));
-          }
-
-          else {
-            throw alert('no data found');
-          }
-        })
-    }
-
-    getFirebaseFormData();
-
-  }, []);
 
   // FORM 
   const schema = yup.object({
@@ -62,11 +30,7 @@ const Offer = ({ persona }) => {
   // methods
   const offerSubmit = (offerData) => {
     router.push('/thankyoupage');
-
   }
-
-  console.log('GREGERTGERTGH', firebaseValueSelected);
-  console.log('errors ->', errors);
 
   return (
     <section className={styles.form__section}>
