@@ -20,7 +20,7 @@ const ListOfStudents = ({ firebaseValueSelected }) => {
                     <li key={item.email}>
                         {item.name}
                     </li>
-                ))
+                )).reverse()
             }
         </ul>
     )
