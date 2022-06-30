@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router';
 // firebase
 import firebaseApp from '../Database/firebase';
 import {
@@ -11,6 +12,7 @@ import {
 import { set, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { FaExclamationCircle } from 'react-icons/fa';
 // components
 import Input from '../Input';
 import Button from '../Button';
@@ -20,6 +22,8 @@ import styles from '../../styles/css/SurveyForm.module.css';
 const Offer = ({ persona }) => {
 
   const [firebaseValueSelected, setFirebaseValueSelected] = useState(() => []);
+
+  const router = useRouter();
 
   useEffect(() => {
 
@@ -46,32 +50,39 @@ const Offer = ({ persona }) => {
   // FORM 
   const schema = yup.object({
     // objetos do form - validação e erros
-    company: yup.string().required(),
-    school: yup.string().required()
-  })
+    company: persona === 'fulltimejob' ? yup.string().required() : null,
+    school: persona === 'fulltimejob' ? null : yup.string().required(),
+    terms: yup.boolean().default(false).oneOf([true]),
+  }).required();
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
-  })
+  });
 
   // methods
-  const onSubmit = (offerData) => {
-    console.log('FDSGFDFGDFG', offerData);
+  const offerSubmit = (offerData) => {
+    router.push('/thankyoupage');
+
   }
 
   console.log('GREGERTGERTGH', firebaseValueSelected);
+  console.log('errors ->', errors);
 
   return (
     <section className={styles.form__section}>
       <h1 className={styles.form__title}>
-        Conteudo do survey form
+        {persona === 'fulltimejob' ? 'Aumente seu Salário!' : 'Temos Bônus para Estudantes!'}
       </h1>
       <p className={styles.form__subtitle}>
-        Thank you for taking the time to help us improve the platform
+        {
+          persona === 'fulltimejob'
+            ? 'Temos um plano de carreira para desenvolvedores que desejam se desenvolver'
+            : 'Temos acesso livre para mais de 1000 serviços exclusivos para estudantes de programação'
+        }
       </p>
       <form
         className={styles.form__control}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(offerSubmit)}
       >
 
         {persona === 'fulltimejob' ? (
@@ -104,9 +115,35 @@ const Offer = ({ persona }) => {
           />
         )}
 
+        <div style={{ marginRight: 'auto' }}>
+          <input
+            className={styles.form__checkbox}
+            type="checkbox"
+            value={true}
+            name="terms"
+            {...register('terms', { required: true })}
+          />
+          &nbsp; Li e declaro que Autorizo e aceito os termos de serviço
+          {
+            errors.terms &&
+            <span
+              className={styles.form__errors}
+            >
+              <FaExclamationCircle
+                style={{
+                  color: 'white',
+                  margin: '0px 5px'
+                }}
+              />
+              <br />
+              Por favor, aceite os termos de contrato para prosseguir
+            </span>
+          }
+        </div>
+
         <Button
-          btnType={'submit'}
           styleBtn={styles.form__btn}
+          btnType={'submit'}
         >
           Quero Participar
         </Button>

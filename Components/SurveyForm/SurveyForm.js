@@ -1,6 +1,5 @@
 // states 
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 // components
 import Input from '../Input';
 import Select from '../Select';
@@ -32,8 +31,6 @@ const SurveyFormContent = ({ setFormToComplete, setPersona }) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
-
-    const router = useRouter();
 
     const [optionUserSituation, setOptionUserSituation] = useState(() => [
         {
@@ -90,7 +87,6 @@ const SurveyFormContent = ({ setFormToComplete, setPersona }) => {
 
         setFirebaseFormData(formData);
 
-        // router.push('/offer');
         setFormToComplete(false);
         setPersona(formData.userSituation);
         console.log('fdsgdfgdfg', formData.userSituation);
@@ -168,7 +164,7 @@ const SurveyFormContent = ({ setFormToComplete, setPersona }) => {
                             type="radio"
                             value="yes"
                             name="recommend"
-                            {...register('recommendYes')}
+                            {...register('recommend')}
                         />
                         Sem dúvida
                     </div>
@@ -178,7 +174,7 @@ const SurveyFormContent = ({ setFormToComplete, setPersona }) => {
                             type="radio"
                             value="maybe"
                             name="recommend"
-                            {...register('recommendMaybe')}
+                            {...register('recommend')}
                         />
                         Poderia considerar
                     </div>
@@ -188,7 +184,7 @@ const SurveyFormContent = ({ setFormToComplete, setPersona }) => {
                             type="radio"
                             value="no"
                             name="recommend"
-                            {...register('recommendNo')}
+                            {...register('recommend')}
                         />
                         Nem que a vaca tussa
                     </div>
