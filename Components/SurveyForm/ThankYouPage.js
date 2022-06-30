@@ -38,13 +38,10 @@ const ThankYouPage = () => {
 
   }, []);
 
-  console.log('FIREBASEVALUES->', firebaseValueSelected);
-  console.log('NAMES ->', firebaseValueSelected.map(item => item.name));
-
   return (
     <section className={styles.form__section}>
       <h1 className={styles.form__title}>
-        Thank You for the subscription!
+        Obrigado por se Inscrever!
       </h1>
       <p className={styles.form__subtitle}>
         Você agora faz parte do nosso time de colaboradores!
