@@ -97,11 +97,39 @@
     .col__9,
     .col__10,
     .col__12 {
-      width: 50%;
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 820px) {
+    .col,
+    .col__2,
+    .col__3,
+    .col__4,
+    .col__6,
+    .col__8,
+    .col__9,
+    .col__10,
+    .col__12 {
+      width: 100%;
     }
   }
   
   @media screen and (max-width: 680px) {
+    .col,
+    .col__2,
+    .col__3,
+    .col__4,
+    .col__6,
+    .col__8,
+    .col__9,
+    .col__10,
+    .col__12 {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
     .col,
     .col__2,
     .col__3,

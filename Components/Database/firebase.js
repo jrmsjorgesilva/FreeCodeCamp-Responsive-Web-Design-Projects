@@ -2,8 +2,8 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseFetch = async () => {
-  var data;
   const url = 'http://localhost:8000/' || 'https://localhost:8000/';
+  let data;
   try {
     const response = await fetch(url);
     data = await response.json();
@@ -22,27 +22,25 @@ const firebaseFetch = async () => {
       appId: data.appId
     };
 
-    // console.log('comparison->', data.apiKey === firebaseConfig.apiKey);
+    console.log('comparison->', data.apiKey === firebaseConfig.apiKey);
 
     // Initialize Firebase
     const firebaseApp = initializeApp(firebaseConfig);
     return firebaseApp;
 
-    // const firebaseFetchedData = firebaseFetch();
-    // firebaseFetchedData.then(firebaseFetchedData => {
-    //   console.log('fora da funcao-> /n FD:', firebaseFetchedData, 'FC:', firebaseConfig);
-    //   console.log('fora da funcao-> bool comparison ->', firebaseFetchedData.apiKey === firebaseConfig.apiKey);
-    // })
-
-    // alternative syntax for async await promise result
-    // void async function() {
-    //   var firebaseFetchedData = await firebaseFetch()
-    //   console.log(firebaseFetchedData)
-    // }()
-
   }
 }
 
-firebaseFetch()
+export default firebaseFetch();
 
-export default firebaseFetch
+// const firebaseFetchedData = firebaseFetch();
+// firebaseFetchedData.then(firebaseFetchedData => {
+//   console.log('fora da funcao-> /n FD:', firebaseFetchedData, 'FC:', firebaseConfig);
+//   console.log('fora da funcao-> bool comparison ->', firebaseFetchedData.apiKey === firebaseConfig.apiKey);
+// })
+
+// alternative syntax for async await promise result
+// void async function() {
+//   var firebaseFetchedData = await firebaseFetch()
+//   console.log(firebaseFetchedData)
+// }()

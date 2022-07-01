@@ -29,13 +29,18 @@ const PortfolioContent = () => {
   return (
     <>
       <div id='observer'>
-        <PortfolioHero showHide={showHide} setShowHide={setShowHide} />
+        <PortfolioHero 
+          showHide={showHide} 
+          setShowHide={setShowHide} 
+        />
       </div>
       <PortfolioCards />
       {
         showHide &&
         <div className={styles.portfolio__float__btn}>
-          <PortfolioForm styleBtn={styles.portfolio__btn} />
+          <PortfolioForm 
+            styleBtn={styles.portfolio__btn} 
+          />
         </div>
       }
     </>
