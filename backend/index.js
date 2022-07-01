@@ -14,6 +14,7 @@ const firebaseConfigProtected = {
     storageBucket: process.env.STORAGE_BUCKET,
     messagingSenderId: process.env.MESSAGING_SENDER_ID,
     appId: process.env.APP_ID
+    // databaseURL: process.env.DATABASE_URL
 };
 
 app.use(express.json());

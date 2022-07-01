@@ -20,6 +20,7 @@ const firebaseFetch = async () => {
       storageBucket: data.storageBucket,
       messagingSenderId: data.messagingSenderId,
       appId: data.appId
+      // databaseURL: data.databaseURL
     };
 
     console.log('comparison->', data.apiKey === firebaseConfig.apiKey);
