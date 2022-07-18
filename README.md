@@ -2,12 +2,9 @@ This is some projects developed for a freecodecamp JS libraries bootcamp in 2020
 
 ## Prints
 
-<img src='./public/img/librariesApp_1.png' alt='projetos freecodecamp'>
-<img src='./public/img/librariesApp_2.png' alt='projetos freecodecamp'>
-<img src='./public/img/librariesApp_3.png' alt='projetos freecodecamp'>
-<img src='./public/img/librariesApp_4.png' alt='projetos freecodecamp'>
-<img src='./public/img/librariesApp_5.png' alt='projetos freecodecamp'>
-<img src='./public/img/librariesApp_6.png' alt='projetos freecodecamp'>
+<img src='./public/img/imgDocs/printscreen_project_1.png' alt='projetos freecodecamp'>
+<img src='./public/img/imgDocs/printscreen_project_2.png' alt='projetos freecodecamp'>
+<img src='./public/img/imgDocs/printscreen_project_3.png' alt='projetos freecodecamp'>
 
 ## Getting Started
 
