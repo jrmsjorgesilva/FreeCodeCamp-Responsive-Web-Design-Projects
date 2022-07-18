@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is some projects developed for a freecodecamp JS libraries bootcamp in 2020. The hole project can be found on https://jslibraryprojects.netlify.app
+
+## Prints
+
+<img src='./public/img/librariesApp_1.png' alt='projetos freecodecamp'>
+<img src='./public/img/librariesApp_2.png' alt='projetos freecodecamp'>
+<img src='./public/img/librariesApp_3.png' alt='projetos freecodecamp'>
+<img src='./public/img/librariesApp_4.png' alt='projetos freecodecamp'>
+<img src='./public/img/librariesApp_5.png' alt='projetos freecodecamp'>
+<img src='./public/img/librariesApp_6.png' alt='projetos freecodecamp'>
 
 ## Getting Started
 
