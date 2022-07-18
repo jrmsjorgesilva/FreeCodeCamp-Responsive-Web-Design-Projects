@@ -34,7 +34,6 @@ const ThankYouPage = () => {
               console.log(Object.values(snapshot.val()).map(item => item.name));
               setFirebaseValueSelected(Object.values(snapshot.val()));
             }
-
             else {
               throw alert('no data found');
             }
